@@ -1,0 +1,28 @@
+body {
+  background-color: cyan;
+  border: solid 5px black;
+  border-radius: 10px;
+  min-height: 200px;
+  width: fit-content;
+  margin: 10px;
+}
+section {
+  border: solid 5px black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+div {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
+  font-weight: bolder;
+  font-size: 1.1em;
+  color: black;
+  padding: 4px;
+  text-align: center;
+}
+div:hover {
+  transform: translateX(-500px);
+}
+p {
+  text-align: center;
+}
