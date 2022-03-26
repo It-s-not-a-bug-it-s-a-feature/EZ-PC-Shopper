@@ -1,6 +1,7 @@
 # Software Requirements
 
-Remove the _emphasized_ statements as they get completed they are placeholders (as is this).
+Remove the _emphasized_ statements as they get completed, they are placeholders.
+_all sections of this file were pulled from 'Common Curriculum/projects/SoftwareReqs'_  
 
 ## Vision
 
