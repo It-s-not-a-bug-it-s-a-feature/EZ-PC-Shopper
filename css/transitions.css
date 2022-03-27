@@ -1,0 +1,70 @@
+* {
+  font-family: Arial, sans-serif;
+  background: darkgray;
+  font-size: 1.3em;
+  color: white;
+}
+body > div {
+  width:content;
+  background:#676470;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px;
+}
+.fadein {
+  opacity:0.1;
+}
+.fadein:hover {
+  opacity:1;
+}
+.fadeout {
+  opacity:1.0;
+}
+.fadeout:hover{
+  opacity:0.1;
+}
+.color:hover {
+  background:#53a7ea;
+}
+.grow:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+.shrink:hover {
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.rotate:hover{
+  -webkit-transform: rotateZ(-30deg);
+  -ms-transform: rotateZ(-30deg);
+  transform: rotateZ(-30deg);
+}
+.circle:active{
+  -webkit-animation: swing 0.5s ease;
+  animation: swing 0/5s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+.circle:hover{
+  border-radius:50%;
+}
+.threed:hover{
+  box-shadow: 1px 1px #53a7ea,
+    2px 2px #53a7ea,
+    3px 3px #53a7ea;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+}
+.swing:hover
+{
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+.border:hover{
+  box-shadow: inset 0 0 0 10px #53a7ea;
+}
