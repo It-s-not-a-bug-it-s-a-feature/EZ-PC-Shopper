@@ -1,26 +1,42 @@
-# Software Requirements
+# Requirements
 
-Remove the _emphasized_ statements as they get completed, they are placeholders.
-_all sections of this file were pulled from 'Common Curriculum/projects/SoftwareReqs'_  
+## Software Requirements
+
+- Git clone from repository.
+- Use web server that's compatible with HTML, CSS, and JS if hosting is needed.
+
+### To develop/contribute to this project
+
+- git clone the repository.
+- Use an IDE (i.e. VSCode).
+- Install JS linter.
+- Retain MIT license file with any changes that made.
 
 ## Vision
 
-_(minimum 3-5 sentence)_  
-_Product Vision statement_  
-_Pain Point Solution statement_  
-_Statement as to why would anyone should care?_  
+We want to make computer shopping easier for ALL users. We use visual aids to assist end-users to build a computer that meets their needs. Users may not know what the components are, and we take out the hassle of descriptors with visual aids and easy-to-understand language. It's a unique and effective way to help ANY computer user build and buy a custom computer.
 
 ### In Scope
 
-_describe individual features product WILL do_  
-_high level overview of each feature_  
-_at least 4-5 features_  
-_we do NOT need to do OUT OF SCOPE_  
+- Create front page with the ability to choose a path.
+- Allow the user to build a computer with visual aids.
+- The user can customize which components they want with slideshow images.
+- View the shopping cart with a list of selected components.
 
 ### MVP Features
 
-_what will the MVP features be?_  
-_list any stretch goals there are_  
+The minimum functionality we want to present
+
+1. Provide 3 paths to help users build a computer appropriate to their needs.
+2. Able to build pc from listed components using visual aids and easy-to-understand terminology.
+3. See chosen components in shopping cart as a list with total cost.
+4. Have an about us page to describe the owners.
+
+Stretch goals:
+
+- User changes their mind about what needs they need and the site updates local storage with the newly selected path.
+- Animations of buttons, tables, design elements.
+- Buying multiple pc's, update the site's ability to buy more than one pc.
 
 ## Functional Requirements
 
@@ -40,6 +56,7 @@ _list any stretch goals there are_
 - In either case the website will show the user the list of components they selected in a list below the categorical images of components.
 
 4. When the user is done selecting components, they click a checkout button that stores their selections and loads the ‘shopping cart’ page with the object’s properties.
+
 5. The shopping cart page loads locally stored data and shows the following in the shopping cart table:
 
 - List containing each component selected and its cost properties.
