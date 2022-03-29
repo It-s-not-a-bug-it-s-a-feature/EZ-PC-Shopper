@@ -5,43 +5,67 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/reset.css">
+
+  <!-- <link rel="stylesheet" href="css/reset.css"> -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Londrina+Outline&family=Monoton&family=Poppins:wght@200;500&display=swap" rel="stylesheet">
   <title>EZ PC&#8482</title>
 </head>
 
-<!--Header-->
-<header id="hero-header">
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="aboutUs.html">About</a></li>
-      <li><a href="shopCart.html"><img src="#" alt="Shopping Cart"></a></li> <span>#</span>
-    </ul>
-  </nav>
 
-  <h1>EZ-PC<span id="tm">&#8482</span></h1>
-</header>
 
 <!--Main Content-->
+
 <body>
+  <!--Header-->
+  <header id="heroImg">
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="#">
+            <li>Home</li>
+          </a>
+          <a href="#">
+            <li>About</li>
+          </a>
+        </ul>
+      </div>
+    </nav>
+
+    <h1 id="headerH1">EZ-PC &#8482</h1>
+  </header>
+
   <main>
     <section id="pitchContent">
-      <h1>Motto</h1>
-      <p>Our sales pitch, value of the product, and a call to action to get users to click below.</p>
+
+      <h2>Motto</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, et nihil voluptatibus nobis enim
+        laborum quo in suscipit, soluta laboriosam tempora officiis, veniam quae eos magni recusandae? At, iure!
+        Quaerat. Accusantium earum error a commodi ab deleniti non aspernatur incidunt, quas laborum tenetur modi iste
+        soluta velit unde facilis nostrum nesciunt veritatis, repellendus ipsa molestias expedita esse. Obcaecati,
+        perspiciatis ipsum!</p>
     </section>
 
-    <section>
-      <a href="build.html"><img src="#" alt="Office computers" class="category"></a>
-      <a href="build.html"><img src="#" alt="Gaming computers" class="category"></a>
-      <a href="build.html"><img src="#" alt="Productivity computers" class="category"></a>
+
+    <section id="categories">
+      <h3>How do you plan to use your PC?</h3>
+      <img src="imgs/home-office.jpg" alt="Office computers">
+      <img src="imgs/gaming.jpg" alt="Gaming computers">
+      <img src="imgs/productivity.jpg" alt="Productivity computers">
+
     </section>
   </main>
 
   <footer>
     <p>EZ-PC&#8482 | 1123 South Seattle Rd. | 206-555-0076 </p>
   </footer>
-<!--Footer-->
+  <!--Footer-->
   <script src="js/app.js"></script>
 </body>
 
