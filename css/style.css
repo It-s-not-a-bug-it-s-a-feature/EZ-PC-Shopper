@@ -1,8 +1,9 @@
 
 body {
-background-color: grey;
 margin: 0;
 padding: 0;
+background-color: rgb(227, 230, 230);
+text-align: center;
 }
 
 #heroImg {
@@ -18,10 +19,12 @@ padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-family: 'Orbitron', serif;
-  text-decoration: none;
+  letter-spacing: .5em;
+  font-family: 'Londrina Outline', cursive;
   font-size: 6em;
+  line-height: 2em;
+  color: white;
+  text-emphasis: 900;
 }
 
 #pitchContent {
@@ -44,7 +47,6 @@ padding: 0;
   margin-top: 30px;
 }
 
-<<<<<<< HEAD
 #categories img {
   width: 200px;
   height: 200px;
