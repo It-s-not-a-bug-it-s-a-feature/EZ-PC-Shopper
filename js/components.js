@@ -53,7 +53,7 @@ new Component('motherboard', 'MSI B450M', 90, '', '');
 new Component('motherboard', 'ASRock B550', 140, '', '');
 
 new Component('processor', 'Intel Core i3', 350, '', '');
-new Component('processor', 'i3 10105 AIDS', 50, '', '');
+new Component('processor', 'i3 10105 VIZZ', 50, '', '');
 new Component('processor', 'AMD Ryzen 5', 485, '', '');
 new Component('processor', 'Intel i5-7500', 120, '', '');
 new Component('processor', 'AMD Ryzen 5 2600', 120, '', '');
