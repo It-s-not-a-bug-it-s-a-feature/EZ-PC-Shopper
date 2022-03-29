@@ -6,29 +6,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/builderArea.css">
   <title>EZ PC | Build Area</title>
 </head>
 
 <!--Header-->
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="aboutUs.html">About</a></li>
-      <li><a href="shopCart.html"><img src="#" alt="Shopping Cart"></a></li> <span>#</span>
-    </ul>
+<header id="heroImg">
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <a href="#">
+          <li>Home</li>
+        </a>
+        <a href="#">
+          <li>About</li>
+        </a>
+      </ul>
+    </div>
   </nav>
+
+  <h1 id="headerH1">EZ-PC &#8482</h1>
 </header>
 
 <!--Main content-->
 <body>
+  <h2>Instructions:</h2>
+  <p>We put instructions here!</p>
   <main>
-    <h2>Instructions:</h2>
-    <p>We put instructions here!</p>
   
     <!--The category images (nested in articles) are children of the section. Using grid for section. Use flex for articles-->
-    <section>
+    <section class="itemSelector">
       <article class="items">
         <p></p>
         <img src="#" alt="">
@@ -68,7 +79,7 @@
   </main>
 
 <!--Table-->
-  <table>
+  <table class="tableContents">
     <thead>
       <th>Items</th> <!--Will be above the listed items-->
       <th>Total</th> <!--Will be above the total populated below-->
