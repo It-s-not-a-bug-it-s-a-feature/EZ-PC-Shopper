@@ -14,9 +14,9 @@
 <header>
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="aboutUs.html">About</a></li>
-      <li><a href="shopCart"><img src="#" alt="Shopping Cart"></a></li> <span>#</span>
+      <li><a href="#"><img src="#" alt="Shopping Cart"></a></li> <span>#</span>
     </ul>
   </nav>
 </header>
@@ -25,22 +25,34 @@
   <main>
     <table>
       <thead>
-        <tr>Part</tr> 
-        <tr>Description</tr> 
-        <tr>Price</tr> 
+        <th>Part</th> 
+        <th>Description</th> 
+        <th>Price</th> 
       </thead>
       <tbody>
+<!--Append <td>'s to this section below under <tr>-->
         <tr>
-          <td></td> <!--Template literal of Part's name-->
-          <td></td> <!--Append <td>'s here of product description -->
-          <td></td> <!--Template literal of Part's price-->
+          <td>`${Name}`</td> <!--Template literal of Part's name / DELETE THIS AFTER JS APPEND WORK-->
+          <td>`${Description}`</td> <!--Append <td>'s here of product description / DELETE THIS AFTER JS APPEND WORK -->
+          <td>`${Price}`</td> <!--Template literal of Part's price  /  DELETE THIS AFTER JS APPEND WORK-->
         </tr>
+
+        <!--The <tr> below is for show so we can see how the table looks with multiple rows. Please delete once JS works-->
         <tr>
-          <td></td> <!--Empty table cell for style-->
-          <td></td> <!--Empty table cell for style-->
-          <td></td> <!--Add products prices here-->
+          <td>`${Name}`</td> <!--Template literal of Part's name / DELETE THIS AFTER JS APPEND WORK-->
+          <td>`${Description}`</td> <!--Append <td>'s here of product description / DELETE THIS AFTER JS APPEND WORK -->
+          <td>`${Price}`</td> <!--Template literal of Part's price  /  DELETE THIS AFTER JS APPEND WORK-->
         </tr>
+        <!--The <tr> above is for show so we can see how the table looks with multiple rows. Please delete once JS works-->
+
       </tbody>
+      <tfoot>
+        <tr>
+          <td></td> <!--Empty table cell for style-->
+          <td></td> <!--Empty table cell for style-->
+          <td id="totalPrice">`${totalPrice}`</td> <!--Add products prices here-->
+        </tr>
+      </tfoot> 
     </table>
   </main>
 
