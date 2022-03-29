@@ -35,7 +35,7 @@ body {
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: #000000;
+  background: #242323;
   border-radius: 3px;
   z-index: 1;
 }
@@ -50,7 +50,7 @@ body {
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  background: #3f3e3e;
+  background: #c5bebe;
   list-style-type: none;
   
   transform-origin: 0% 0%;
