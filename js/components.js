@@ -3,6 +3,7 @@
 let chassisObjects = [];
 let motherboardObjects = [];
 let videocardObjects = [];
+let processorObjects = [];
 
 /*  set up chassis object */
 function Component(compType, makeModel, itemPrice, itemDescription, imageUrl) {
@@ -11,8 +12,7 @@ function Component(compType, makeModel, itemPrice, itemDescription, imageUrl) {
   this.price = itemPrice;
   this.description = itemDescription;
   this.url = imageUrl;
-  if (this.componentType.toLowerCase() === 'chassis' ||
-    this.componentType.toLowercase() === 'case') {
+  if (this.compType.toLowercase() === 'case') {
     chassisObjects.push(this);
   }
   else if (this.componentType.toLowerCase() === 'motherboard') {
@@ -20,6 +20,12 @@ function Component(compType, makeModel, itemPrice, itemDescription, imageUrl) {
   }
   else if (this.componentType.toLowerCase() === 'videocard') {
     videocardObjects.push(this);
+  }
+  else if (this.compType.toLowerCase() === 'processor') {
+    processorObjects.push(this);
+  }
+  else if (this.compType.toLowerCase() === 'storage') {
+    storageObjects.push(this);
   }
 }
 
@@ -34,21 +40,18 @@ new Component('chassis','Cooler Master MB320L', 75, '', '');
 
 //  motherboard item full name, price, description, image path
 new Component('motherboard', 'ASRock B660M Pro', 75, '', '');
-  { 'ASRock Chimibonga': 25 },
-  { 'Gigabyte GA-AB350N': 125 },
-  { 'MSI B250 M3': 90 },
-  { 'MSI B450M': 90 },
-  { 'ASRock B550': 140 },
-];
+new Component('motherboard', 'ASRock Chimibonga', 25, '', '');
+new Component('motherboard', 'Gigabyte GA-AB350N', 125, '', '');
+new Component('motherboard', 'MSI B250 M3', 90, '', '');
+new Component('motherboard', 'MSI B450M', 90, '', '');
+new Component('motherboard', 'ASRock B550', 140, '', '');
 
-let cpuObjects = [
-  { 'Intel Core i3': 350 },
-  { 'i3 10105 AIDS': 50 },
-  { 'AMD Ryzen 5': 485 },
-  { 'Intel i5-7500': 120 },
-  { 'AMD Ryzen 5 2600': 120 },
-  { 'Ryzen 5 5600X': 230 },
-];
+new Component('processor', 'Intel Core i3', 350, '', '');
+new Component('processor', 'i3 10105 AIDS', 50, '', '');
+new Component('processor', 'AMD Ryzen 5', 485, '', '');
+new Component('processor', 'Intel i5-7500', 120, '', '');
+new Component('processor', 'AMD Ryzen 5 2600', 120, '', '');
+new Component('processor', 'Ryzen 5 5600X', 230, '', '');
 
 /* setup categorical configurations */
 function Computer(name) {
