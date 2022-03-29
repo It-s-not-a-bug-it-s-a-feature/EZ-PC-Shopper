@@ -5,36 +5,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/reset.css">
+<!--Gooble fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Orbitron:wght@900&family=Playfair+Display&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="css/reset.css"> -->
   <link rel="stylesheet" href="css/style.css">
   <title>EZ PC&#8482</title>
 </head>
 
-<!--Header-->
-<header>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="aboutUs.html">About</a></li>
-      <li><a href="shopCart"><img src="#" alt="Shopping Cart"></a></li> <span>#</span>
-    </ul>
-  </nav>
 
-  <h1>EZ-PC<span id="tm">&#8482</span></h1>
-</header>
 
 <!--Main Content-->
 <body>
+<!--Header-->
+<header id="heroImg">
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <a href="#">
+          <li>Home</li>
+        </a>
+        <a href="#">
+          <li>About</li>
+        </a>
+      </ul>
+    </div>
+  </nav>
+
+  <h1 id="headerH1">EZ-PC &#8482</h1>
+</header>
+
   <main>
     <section id="pitchContent">
       <h1>Motto</h1>
-      <p>Our sales pitch, value of the product, and a call to action to get users to click below.</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, et nihil voluptatibus nobis enim laborum quo in suscipit, soluta laboriosam tempora officiis, veniam quae eos magni recusandae? At, iure! Quaerat.
+      Accusantium earum error a commodi ab deleniti non aspernatur incidunt, quas laborum tenetur modi iste soluta velit unde facilis nostrum nesciunt veritatis, repellendus ipsa molestias expedita esse. Obcaecati, perspiciatis ipsum!</p>
     </section>
 
-    <section>
-      <img src="build.html" alt="Office computers">
-      <img src="build.html" alt="Gaming computers">
-      <img src="build.html" alt="Productivity computers">
+    <section id="categories">
+      <img src="imgs/retro-comp.jpg" alt="Office computers">
+      <img src="imgs/retro-comp.jpg" alt="Gaming computers">
+      <img src="imgs/retro-comp.jpg" alt="Productivity computers">
     </section>
   </main>
 
