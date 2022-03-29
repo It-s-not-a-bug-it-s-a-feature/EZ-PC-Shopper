@@ -6,8 +6,14 @@ body {
   width: fit-content;
   margin: 10px;
 }
+
+header {
+  background: url("imgs/keyboard.png");
+  width: 800px;
+}
+
 section {
-  border: solid 5px black;
+  border: 5px solid black;
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
