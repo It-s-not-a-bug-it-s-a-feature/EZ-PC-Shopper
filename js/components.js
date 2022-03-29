@@ -4,6 +4,8 @@ let chassisObjects = [];
 let motherboardObjects = [];
 let videocardObjects = [];
 let processorObjects = [];
+let storageObjects = [];
+let cpuObjects = [];
 
 /*  set up chassis object */
 function Component(compType, makeModel, itemPrice, itemDescription, imageUrl) {
@@ -53,6 +55,7 @@ new Component('processor', 'Intel i5-7500', 120, '', '');
 new Component('processor', 'AMD Ryzen 5 2600', 120, '', '');
 new Component('processor', 'Ryzen 5 5600X', 230, '', '');
 
+
 /* setup categorical configurations */
 function Computer(name) {
   this.userName = name;
@@ -63,8 +66,8 @@ function Computer(name) {
 
 /* test system using template constructor */
 let basicComputer = new Computer('Basic User');
-let midLevelComputer = new Computer("Office Worker");
-let highEndComputer = new Computer("Gamer Creator");
+let midLevelComputer = new Computer('Office Worker');
+let highEndComputer = new Computer('Gamer Creator');
 
 /* test a system setup in an array */
 //let testSetup = [chassis["Cooler Master MB320L"], motherboards["MSI B250 M3"], cpus["AMD Ryzen 5 2600"]];
