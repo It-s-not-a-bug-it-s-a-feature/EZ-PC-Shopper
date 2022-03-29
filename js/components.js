@@ -1,19 +1,39 @@
 'use strict';
 
+let chassisObjects = [];
+let motherboardObjects = [];
+let videocardObjects = [];
+
+/*  set up chassis object */
+function Component(compType, makeModel, itemPrice, itemDescription, imageUrl) {
+  this.componentType = compType;
+  this.model = makeModel;
+  this.price = itemPrice;
+  this.description = itemDescription;
+  this.url = imageUrl;
+  if (this.componentType.toLowerCase() === 'chassis' ||
+    this.componentType.toLowercase() === 'case') {
+    chassisObjects.push(this);
+  }
+  else if (this.componentType.toLowerCase() === 'motherboard') {
+    motherboardObjects.push(this);
+  }
+  else if (this.componentType.toLowerCase() === 'videocard') {
+    videocardObjects.push(this);
+  }
+}
+
 /* set up object arrays of components */
-//  item full name, price
-let chassisObjects = [
-  { 'Deepcool Matrix': 50 },
-  { 'Dell WeezleWomper': 25 },
-  { 'In Win Chopin': 125 },
-  { 'Lian Li O11': 120 },
-  { 'Rosewill D100': 100 },
-  { 'Cooler Master MB320L': 75 },
-];
+//  chassis item full name, price, description, image path
+new Component('chassis','Deepcool Matrix', 50, '', '');
+new Component('chassis','Dell WeezleWomper', 25, '', '');
+new Component('chassis','In Win Chopin', 125, '', '');
+new Component('chassis','Lian Li O11', 120, '', '');
+new Component('chassis','Rosewill D100', 100, '', '');
+new Component('chassis','Cooler Master MB320L', 75, '', '');
 
-
-let motherboardObjects = [
-  { 'ASRock B660M Pro': 75 },
+//  motherboard item full name, price, description, image path
+new Component('motherboard', 'ASRock B660M Pro', 75, '', '');
   { 'ASRock Chimibonga': 25 },
   { 'Gigabyte GA-AB350N': 125 },
   { 'MSI B250 M3': 90 },
