@@ -1,6 +1,6 @@
 
 header {
-  background: url("/imgs/retro-comp.jpg") no-repeat center;
+  background: url("../imgs/retro-comp.jpg") no-repeat center;
   background-size: cover;
   width: 100%;
   Height: 500px;
