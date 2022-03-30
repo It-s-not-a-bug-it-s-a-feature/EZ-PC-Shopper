@@ -89,18 +89,15 @@
   <!--Table-->
   <table class="tableContents">
     <thead>
+      <th>Component</th>
       <th>Items</th>
       <!--Will be above the listed items-->
       <th>Total</th>
       <!--Will be above the total populated below-->
     </thead>
-    <tbody>
-      <tr>
-        <td>`${item}`</td>
-        <!--List of items selected will be appended here-->
-        <td>`${total}`</td>
-        <!--Total will be appended here-->
-      </tr>
+    <tbody id="tableBody">
+      <!--List of items selected will be appended here-->
+      <!--Total will be appended here-->
     </tbody>
   </table>
 
@@ -110,6 +107,7 @@
   </footer>
   <script src="js/storage.js"></script>
   <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
 </body>
 
 </html>
