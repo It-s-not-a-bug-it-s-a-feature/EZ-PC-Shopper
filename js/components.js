@@ -98,6 +98,6 @@ let highEndComputer = new Computer('Gamer User');
 /* test a system setup in an array */
 //let testSetup = [chassis["Cooler Master MB320L"], motherboards["MSI B250 M3"], cpus["AMD Ryzen 5 2600"]];
 
-console.log(basicComputer);
+console.log(`basicComputer: ${basicComputer}`);
 console.log(midLevelComputer);
 console.log(highEndComputer);
