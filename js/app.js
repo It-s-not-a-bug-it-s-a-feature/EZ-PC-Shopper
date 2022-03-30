@@ -128,3 +128,38 @@ function renderItemsList(selectedComputer){
 }
 
 renderItemsList(selectedComputer);
+
+
+// event handling methods*********
+
+function moveNext(event){
+  let currentMemory = selectedComputer.memory;
+
+}
+
+
+
+
+
+// end handling methods***********
+
+
+
+
+
+
+
+
+
+
+
+// function imag(fileName) {
+//   const img = new Image(100, 100);
+//   img.src = `images/${fileName}`;
+//   return img;
+// }
+// const img = document.querySelector('img');
+// img.onclick = () => {
+//   console.log('clicked');
+// }
+
