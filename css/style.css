@@ -1,18 +1,18 @@
 
 body {
-margin: 0;
+margin: auto;
 padding: 0;
 background-color: rgb(227, 230, 230);
 text-align: center;
 }
 
 #heroImg {
-  background: url("/imgs/chip3.jpg") no-repeat center;
+  background: url("../imgs/chip3.jpg") no-repeat center;
   width: 100%; 
   height: 500px;
   background-size: cover;
   background-blend-mode: multiply;
-  padding-right: 52px;
+  
 }
 
 #headerH1 {
@@ -72,6 +72,7 @@ footer {
   top: 50px;
   left: 50px;
   z-index: 1;
+  width: 10%;
 }
 
 #menuToggle a {
@@ -146,7 +147,7 @@ footer {
   
   border: 3px solid black;
 }
-main {
+#mainBuild {
   display: flex;
   align-items: center;
   justify-content: center;
