@@ -146,7 +146,7 @@ footer {
   
   border: 3px solid black;
 }
-#mainBuilder {
+main {
   display: flex;
   align-items: center;
   justify-content: center;
