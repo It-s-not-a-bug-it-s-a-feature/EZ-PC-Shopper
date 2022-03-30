@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>EZ PC | Build Area</title>
+</head>
+
+<!--Header-->
+<header id="heroImg">
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <a href="#">
+          <li>Home</li>
+        </a>
+        <a href="#">
+          <li>About</li>
+        </a>
+      </ul>
+    </div>
+  </nav>
+
+  <h1 id="headerH1">EZ-PC &#8482</h1>
+</header>
+
+<!--Main content-->
+<body>
+  <h2>Instructions:</h2>
+  <p>We put instructions here!</p>
+  <main id="mainBuild">
+  
+    <!--The category images (nested in articles) are children of the section. Using grid for section. Use flex for articles-->
+    <section class="itemSelector">
+      <article class="items">
+        <p></p>
+        <img src="#" alt="">
+        <div id="item1">Select</div>
+      </article>
+        
+      <article class="items">
+        <p></p>
+        <img src="#" alt="">
+        <div id="item2">Select</div>
+      </article>
+        
+      <article class="items">
+        <p></p>
+        <img src="#" alt="">
+        <div id="item3">Select</div>
+      </article>
+        
+      <article class="items">
+        <p></p>
+        <img src="#" alt="">
+        <div id="item4">Select</div>
+      </article>
+        
+      <article class="items">
+        <p></p>
+        <img src="#" alt="">
+        <div id="item5">Select</div>
+      </article>
+        
+      <article class="items">
+        <p></p>
+        <img src="#" alt="">
+        <div id="item6">Select</div>
+      </article>
+    </section>
+  </main>
+
+<!--Table-->
+  <table class="tableContents">
+    <thead>
+      <th>Items</th> <!--Will be above the listed items-->
+      <th>Total</th> <!--Will be above the total populated below-->
+    </thead>
+    <tbody>
+      <tr>
+        <td>`${item}`</td> <!--List of items selected will be appended here-->
+        <td>`${total}`</td> <!--Total will be appended here-->
+      </tr>
+    </tbody>
+  </table>
+
+<!--Footer-->
+  <footer>
+    <p>EZ-PC&#8482 | 1123 South Seattle Rd. | 206-555-0076 </p>
+  </footer>
+  <script src="js/storage.js"></script>
+  <script src="js/components.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+
+body {
+margin: auto;
+padding: 0;
+background-color: rgb(227, 230, 230);
+text-align: center;
+}
+
+#heroImg {
+  background: url("../imgs/chip3.jpg") no-repeat center;
+  width: 100%; 
+  height: 500px;
+  background-size: cover;
+  background-blend-mode: multiply;
+  
+}
+
+#headerH1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: .5em;
+  font-family: 'Londrina Outline', cursive;
+  font-size: 6em;
+  line-height: 2em;
+  color: white;
+  text-emphasis: 900;
+}
+
+#pitchContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#pitchContent p {
+  width: 50%;
+}
+
+#categories {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+#categories img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+footer {
+  width: 100%; 
+  height: 75px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/*********************** Hamburger Nav Style *****************************/
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+  width: 10%;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  opacity: 0; 
+  z-index: 2; 
+}
+
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: whitesmoke;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+#menuToggle input:checked ~ span {
+  background: #fffcfc;
+}
+
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #3f3e3e;
+  list-style-type: none;
+  opacity: 0.9;
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+
+
+
+.itemSelector {
+  display: grid;
+  grid-template-rows: 300px 300px ;
+  grid-template-columns: 300px 300px 300px;
+  margin: 80px;
+  gap: 100px;
+  
+}
+.items {
+  
+  border: 3px solid black;
+}
+#mainBuild {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+#shoppingCart {
+  color: white;
+  position: absolute;
+  top: 40px;
+  left: 0;
+}
+
+
+/*******************  table styles  *******************/
+
+.tableContents {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+
+  th {
+    padding: 20px 20px;
+    background-color: rgb(0, 201, 0, 0.3);
+    border: 2px solid rgb(200, 0, 0, 0.3);
+  }
+  
+  td {
+    padding: 30px 30px;
+    background-color: rgb(0, 201, 0, 0.3);
+    border: 2px solid rgb(200, 0, 0, 0.3);
+    text-align: center;
+  }
