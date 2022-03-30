@@ -11,43 +11,58 @@
 
 <body>
 <!--Header-->
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="shopCart.html"><img src="" alt="Shopping Cart"></a></li>
-    </ul>
+<header class="header">
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <a href="index.html">
+          <li>Home</li>
+        </a>
+        <a href="aboutUs.html">
+          <li>About</li>
+        </a>
+      </ul>
+    </div>
   </nav>
+
+  <h1 class="headerH1">EZ-PC &#8482</h1>
 </header>
 
 <main>
   <h1>About the team</h1>
-    <p>We are the best pc builders around</p>
+    <p id="about">"If it's hard we make it easy". Our well rounded team has dedicated their time and effort
+      to bring you an exceptional online shopping experince via EZ-PC. They have extensive knowledge
+       in PC hardware giving us the advantage of giving you all the right compenents. Don't worry, we 
+       don't skip out on the good stuff.
+    </p>
 
-    <section>
+    <section id="friends">
       <article>
         <h2>Jon Rumsey</h2>
-          <img src="#" alt="Jon's portrait">
-            <p>Description of Jon's roles</p>
+          <img src="imgs/jon.jpeg" alt="Jon's portrait" class="profile">
+            <p>"Gituation detective"</p>
       </article>
 
       <article>
         <h2>Elizabeth Beale</h2>
-          <img src="#" alt="Elizabeth's portrait">
-            <p>Description of Elizabeth's roles</p>
+          <img src="imgs/liz.jpeg" alt="Elizabeth's portrait" class="profile">
+            <p>"Wish we did the pet dating website"</p>
       </article>
 
       <article>
         <h2>Scott Evans</h2>
-          <img src="#" alt="Scott's portrait">
-            <p>Description of Scott's roles</p>
+          <img src="imgs/scott.jpeg" alt="Scott's portrait" class="profile">
+            <p>"I think I just broke git"</p>
       </article>
 
       <article>
         <h2> Kyle Honaker</h2>
-          <img src="#" alt="Kyle's portrait">
-            <p>Description of Kyle's roles</p>
+          <img src="imgs/kyle.jpeg" alt="Kyle's portrait" class="profile">
+            <p>"<-- I think he just broke git"</p>
       </article>
     </section>
 </main>

@@ -10,20 +10,31 @@
 </head>
 
 <body>
-<!--Header-->
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="aboutUs.html">About</a></li>
-      <li><a href="#"><img src="#" alt="Shopping Cart"></a></li> <span>#</span>
-    </ul>
-  </nav>
-</header>
+  <!--Header-->
+  <header class="header">
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="index.html">
+            <li>Home</li>
+          </a>
+          <a href="aboutUs.html">
+            <li>About</li>
+          </a>
+        </ul>
+      </div>
+    </nav>
+  
+    <h1 class="headerH1">EZ-PC &#8482</h1>
+  </header>
 
 <!--Main content-->
   <main>
-    <table>
+    <table id="shop">
       <thead>
         <th>Part</th> 
         <th>Description</th> 
