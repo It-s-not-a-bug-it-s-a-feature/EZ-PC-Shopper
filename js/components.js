@@ -37,47 +37,47 @@ function Component(compType, makeModel, itemPrice, itemDescription, imageUrl) {
 
 /* set up object arrays of components */
 //  chassis item full name, price, description, image path
-new Component('chassis','Deepcool Matrix', 50, '', '');
-new Component('chassis','Dell WeezleWomper', 25, '', '');
-new Component('chassis','In Win Chopin', 125, '', '');
-new Component('chassis','Lian Li O11', 120, '', '');
-new Component('chassis','Rosewill D100', 100, '', '');
-new Component('chassis','Cooler Master MB320L', 75, '', '');
+new Component('Chassis','Deepcool Matrix', 50, '', '');
+new Component('Chassis','Dell WeezleWomper', 25, '', '');
+new Component('Chassis','In Win Chopin', 125, '', '');
+new Component('Chassis','Lian Li O11', 120, '', '');
+new Component('Chassis','Rosewill D100', 100, '', '');
+new Component('Chassis','Cooler Master MB320L', 75, '', '');
 
 //  motherboard item full name, price, description, image path
-new Component('motherboard', 'ASRock B660M Pro', 75, '', '');
-new Component('motherboard', 'ASRock Chimibonga', 25, '', '');
-new Component('motherboard', 'Gigabyte GA-AB350N', 125, '', '');
-new Component('motherboard', 'MSI B250 M3', 90, '', '');
-new Component('motherboard', 'MSI B450M', 90, '', '');
-new Component('motherboard', 'ASRock B550', 140, '', '');
+new Component('Motherboard', 'ASRock B660M Pro', 75, '', '');
+new Component('Motherboard', 'ASRock Chimibonga', 25, '', '');
+new Component('Motherboard', 'Gigabyte GA-AB350N', 125, '', '');
+new Component('Motherboard', 'MSI B250 M3', 90, '', '');
+new Component('Motherboard', 'MSI B450M', 90, '', '');
+new Component('Motherboard', 'ASRock B550', 140, '', '');
 
-new Component('processor', 'Intel Core i3', 350, '', '');
-new Component('processor', 'i3 10105 VIZZ', 50, '', '');
-new Component('processor', 'AMD Ryzen 5', 485, '', '');
-new Component('processor', 'Intel i5-7500', 120, '', '');
-new Component('processor', 'AMD Ryzen 5 2600', 120, '', '');
-new Component('processor', 'Ryzen 5 5600X', 230, '', '');
+new Component('Processor', 'Intel Core i3', 350, '', '');
+new Component('Processor', 'i3 10105 VIZZ', 50, '', '');
+new Component('Processor', 'AMD Ryzen 5', 485, '', '');
+new Component('Processor', 'Intel i5-7500', 120, '', '');
+new Component('Processor', 'AMD Ryzen 5 2600', 120, '', '');
+new Component('Processor', 'Ryzen 5 5600X', 230, '', '');
 
-new Component('memory', 'GSkill RipJaws V', 60, '', '');
-new Component('memory', '8GB DootJigglers', 50, '', '');
-new Component('memory', 'Corsair Vengence LPX 8GB', 50, '', '');
-new Component('memory', 'Elite+ 16GB', 60, '', '');
-new Component('memory', 'T-Force Vulcan', 65, '', '');
-new Component('memory', 'Team T-Force 16GB', 75, '', '');
+new Component('Memory', 'GSkill RipJaws V', 60, '', '');
+new Component('Memory', '8GB DootJigglers', 50, '', '');
+new Component('Memory', 'Corsair Vengence LPX 8GB', 50, '', '');
+new Component('Memory', 'Elite+ 16GB', 60, '', '');
+new Component('Memory', 'T-Force Vulcan', 65, '', '');
+new Component('Memory', 'Team T-Force 16GB', 75, '', '');
 
-new Component('storage', 'Western Digital Blue SN550', 60, '', '');
-new Component('storage', '1TB Solid Strong Man Hard Drive', 200, '', '');
-new Component('storage', 'Samsung EVO 250GB', 45, '', '');
-new Component('storage', 'Crucial P2 1TB', 95, '', '');
-new Component('storage', 'SeaGate FireCoulda', 45, '', '');
-new Component('storage', 'Team MP33 1TB', 80, '', '');
+new Component('Storage', 'Western Digital Blue SN550', 60, '', '');
+new Component('Storage', '1TB Solid Strong Man Hard Drive', 200, '', '');
+new Component('Storage', 'Samsung EVO 250GB', 45, '', '');
+new Component('Storage', 'Crucial P2 1TB', 95, '', '');
+new Component('Storage', 'SeaGate FireCoulda', 45, '', '');
+new Component('Storage', 'Team MP33 1TB', 80, '', '');
 
-new Component('videocard', 'GE-Force GT1030', 140, '', '');
-new Component('videocard', 'Intel UHD 630', 150, '', '');
-new Component('videocard', 'MSI GE-Force GTX 660 TI 2GB', 125, '', '');
-new Component('videocard', 'MSI GE-Force GTX 960 4GB', 160, '', '');
-new Component('videocard', 'GE-Force GTX 1660 6GB', 220, '', '');
+new Component('Videocard', 'GE-Force GT1030', 140, '', '');
+new Component('Videocard', 'Intel UHD 630', 150, '', '');
+new Component('Videocard', 'MSI GE-Force GTX 660 TI 2GB', 125, '', '');
+new Component('Videocard', 'MSI GE-Force GTX 960 4GB', 160, '', '');
+new Component('Videocard', 'GE-Force GTX 1660 6GB', 220, '', '');
 
 /* setup categorical configurations */
 function Computer(name) {
