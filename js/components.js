@@ -93,9 +93,9 @@ function Computer(name, chassisID, motherboardID, videocardID, processorID, memo
 
 
 /* test system using template constructor */
-let basicComputer = new Computer('Basic User', 0, 0, 0, 0, 0, 0);
-let midLevelComputer = new Computer('Productivity User', 3, 3, 3, 3, 3, 3);
-let highEndComputer = new Computer('Gamer User', 6, 6, 6, 6, 6, 5);
+let basicComputer = new Computer('BasicUser', 0, 0, 0, 0, 0, 0);
+let midLevelComputer = new Computer('ProductivityUser', 3, 3, 3, 3, 3, 3);
+let highEndComputer = new Computer('HighPerfUser', 6, 6, 6, 6, 6, 5);
 
 /* test a system setup in an array */
 //let testSetup = [chassis["Cooler Master MB320L"], motherboards["MSI B250 M3"], cpus["AMD Ryzen 5 2600"]];

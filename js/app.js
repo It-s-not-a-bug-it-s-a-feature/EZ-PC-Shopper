@@ -240,32 +240,34 @@ function imgClicked(event) {
   for (let idx = 0; idx < memoryObjects.length; idx++) {
 
     if (memoryObjects[idx].model === memoryImgTag.alt) {
-      console.log('BREAK: memoryIndex is < 0');
+      memoryIndex = idx;
       break;
     }
   }
-
-  if (memoryIndex < 0) {
-    console.log()
-  }
   //  get current alt attribute on the current image
+  if (memoryIndex < 0) {
+    console.log(`BREAK: memoryIndex is < 0`);
+    return;
+  } else {
+    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+    basicComputer.memory.url = memoryObjects[memoryIndex].url;
+    basicComputer.memory.alt = memoryObjects[memoryIndex].model;
+    basicComputer.memory.model = memoryObjects[memoryIndex].model;
+    basicComputer.memory.description = memoryObjects[memoryIndex].description;
 
-  //  store thta attribute's value to the computer object's memory property
-
-  //  ask the methods in storage.js to store the computer object into local storage
-
+    //  ask the methods in storage.js to store the computer object into local storage
+    console.log(`writing computer object to local storage: ${basicComputer.componentType}`);
+    writeToStorage(basicComputer.userName, basicComputer);
+  }
 }
 
 function memoryClickedHandler(event){
   console.log('entered memoryClickedHandler function');
 
-  // if (event.target.className === 'memoryImg') {
-  //   console.log('event.target.classname is memoryImg');
-  //   imgClicked(event);
-  // } else {
-  //   console.log('memoryClickedHandler(event) first "else" called');
-  //   //  this code is SUSPECT needs to be tested
-  // }
+  if (event.target.className === 'memoryImg') {
+    console.log('event.target.classname is memoryImg');
+    imgClicked(event);
+  }
 
   if(event.target.className === 'prev'){
     movePrev(event);
@@ -278,6 +280,28 @@ function memoryClickedHandler(event){
 
 let componentEl = document.getElementById('memory');
 // END MEMORY COMPONENT EVENTS
+
+// CPU COMPONENT EVENTS
+
+// END CPU COMPONENT EVENTS
+
+// CHASSIS COMPONENT EVENTS
+
+// END CHASSIS COMPONENT EVENTS
+
+// VIDEOCARD COMPONENT EVENTS
+
+// END VIDEOCARD COMPONENT EVENTS
+
+// MOTHERBOARD COMPONENT EVENTS
+
+// END MOTHERBOARD COMPONENT EVENTS
+
+// STORAGE COMPONENT EVENTS
+
+// END STORAGE COMPONENT EVENTS
+
+
 
 /* REGISTER EVENT LISTENERS */
 componentEl.addEventListener('click', memoryClickedHandler);
