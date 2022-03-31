@@ -486,7 +486,105 @@ let chassisComponentEl = document.getElementById('chassis');
 // END CHASSIS COMPONENT EVENTS
 // ************************************************************************************************************
 // VIDEOCARD COMPONENT EVENTS
+function videocardMoveNext(event) {
+  let videocardIndex = -1;
 
+  for (let idx = 0; idx < videocardObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (videocardObjects[idx].model === videocardImgTag.alt) {
+      console.log(`Found videocardObject at index ${idx}`);
+      videocardIndex = idx;
+      break;
+    }
+  }
+  if (videocardIndex < 0) {
+    console.log('BREAK: videocardIndex is < 0');
+    return;
+  } else if (videocardIndex === videocardObjects.length - 1) {
+    console.log('videocardIndex was at end, reset to 0');
+    videocardIndex = 0;
+  } else {
+    videocardIndex++;
+    console.log(`videocardIndex incremented to: ${videocardIndex}`);
+  }
+
+  videocardImgTag.src = videocardObjects[videocardIndex].url;
+  videocardImgTag.alt = videocardObjects[videocardIndex].model;
+}
+
+function videocardMovePrev(event) {
+  let videocardIndex = -1;
+
+  for (let idx = 0; idx < videocardObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (videocardObjects[idx].model === videocardImgTag.alt) {
+      console.log(`Found videocardObject at index ${idx}`);
+      videocardIndex = idx;
+      break; //  we found the index in the component definition array
+    }
+  }
+  if (videocardIndex < 0) {
+    console.log(`BREAK: videocardIndex is < 0`);
+    return;
+  } else if (videocardIndex < 1) {
+    // index is at zero and must be reset to end
+    videocardIndex = videocardObjects.length - 1;
+  } else {
+    // index is somewhere within the valid range so decrement it
+    videocardIndex--;
+    console.log(`videocardIndex decremented to: ${videocardIndex}`);
+  }
+
+  console.log(`setting videocardImgTag src and alt at videocardIndex ${videocardIndex}`);
+  videocardImgTag.src = videocardObjects[videocardIndex].url;
+  videocardImgTag.alt = videocardObjects[videocardIndex].model;
+}
+
+function videocardImgClicked(event) {
+  let videocardIndex = -1;
+
+  for (let idx = 0; idx < videocardObjects.length; idx++) {
+
+    if (videocardObjects[idx].model === videocardImgTag.alt) {
+      videocardIndex = idx;
+      break;
+    }
+  }
+  //  get current alt attribute on the current image
+  if (videocardIndex < 0) {
+    console.log(`BREAK: videocardIndex is < 0`);
+    return;
+  } else {
+    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+    basicComputer.videocard.url = videocardObjects[videocardIndex].url;
+    basicComputer.videocard.alt = videocardObjects[videocardIndex].model;
+    basicComputer.videocard.model = videocardObjects[videocardIndex].model;
+    basicComputer.videocard.description = videocardObjects[videocardIndex].description;
+
+    //  ask the methods in storage.js to store the computer object into local storage
+    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
+    writeToStorage(basicComputer.userName, basicComputer);
+  }
+}
+
+function videocardClickedHandler(event){
+  console.log('entered videocardClickedHandler function');
+
+  if (event.target.className === 'videocardImg') {
+    console.log('event.target.classname is videocardImg');
+    videocardImgClicked(event);
+  }
+
+  if(event.target.className === 'prev'){
+    videocardMovePrev(event);
+  }
+
+  if(event.target.className === 'next'){
+    videocardMoveNext(event);
+  }
+}
+
+let videocardComponentEl = document.getElementById('videocard');
 // END VIDEOCARD COMPONENT EVENTS
 // ************************************************************************************************************
 // MOTHERBOARD COMPONENT EVENTS
@@ -700,6 +798,10 @@ let storageComponentEl = document.getElementById('storage');
 ramComponentEl.addEventListener('click', memoryClickedHandler);
 cpuComponentEl.addEventListener('click', cpuClickedHandler);
 chassisComponentEl.addEventListener('click', chassisClickedHandler);
+
+videocardComponentEl.addEventListener('click', videocardClickedHandler);
+// motherBoardComponentEl.addEventListener('click', motherBoardClickedHandler);
+// storageComponentEl.addEventListener('click', storageClickedHandler);
 // videoCardComponentEl.addEventListener('click', videoCardClickedHandler);
 motherBoardComponentEl.addEventListener('click', motherBoardClickedHandler);
 storageComponentEl.addEventListener('click', storageClickedHandler);
