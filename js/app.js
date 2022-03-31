@@ -1,5 +1,46 @@
 'use strict';
 
+/* the following objects are already created with defaults 
+basicComputer
+midLevelComputer
+highEndComputer
+
+The code that calls this page (ie user clicks-in from index.html) should use the
+basicComputer, midLevelComputer, or highEndComputer examples in components.js and
+just create an object accordinly.
+*/
+
+function renderSlideshow() {
+  // let firstSlideArticle = document.getElementById('memory');
+  // let caption = firstSlideArticle.firstChild;
+  // caption.textContent = basicComputer.memory.componentType;
+  let memoryImgTag = document.getElementById('memoryImg');
+  memoryImgTag.src = basicComputer.memory.url;
+  memoryImgTag.alt = basicComputer.memory.description;
+
+  let processorImgTag = document.getElementById('processorImg');
+  processorImgTag.src = basicComputer.processor.url;
+  processorImgTag.alt = basicComputer.processor.description;
+
+  //  TODO: post images for storage
+  let storageImgTag = document.getElementById('storageImg');
+  storageImgTag.src = basicComputer.storage.url;
+  storageImgTag.alt = basicComputer.storage.description;
+
+  //  TODO: post images for chassis
+  let chassisImgTag = document.getElementById('chassisImg');
+  chassisImgTag.src = basicComputer.chassis.url;
+  chassisImgTag.alt = basicComputer.chassis.description;
+  //  TODO: post images for videocard
+  let videocardImgTag = document.getElementById('videocardImg');
+  videocardImgTag.src = basicComputer.videocard.url;
+  videocardImgTag.alt = basicComputer.videocard.description;
+  //  TODO: post images for motherboard
+  let motherboardImgTag = document.getElementById('motherboardImg');
+  motherboardImgTag.src = basicComputer.motherboard.url;
+  motherboardImgTag.alt = basicComputer.motherboard.description;
+}
+
 // This represents the user's selected computer type from home screen.
 let selectedComputer = basicComputer;
 
@@ -129,17 +170,20 @@ function renderItemsList(selectedComputer){
 
 renderItemsList(selectedComputer);
 
-
 // event handling methods*********
-
 function moveNext(event){
   let clickedItem = event.target;
-  console.log(clickedItem);
-  let memoryIndex = memoryObjects.findIndex(event.target.url);
+  console.log(`clickedItem.img.url: ${clickedItem.url}`);
+  let memoryIndex = memoryObjects.findIndex((itm) => itm.url === 'imgs/ram1.jpg');
+  
   if(memoryIndex > -1 && memoryIndex < memoryObjects.length){
     memoryIndex++;
+    console.log(`Found imgs/ram1.jpg! ${clickedItem.url}`);
+    console.log(`Memory index incremented to: ${memoryIndex}`);
+  } else {
+    console.log(`memoryIndex remains at: ${memoryIndex}`);
   }
-  console.log(`Memory index: ${memoryIndex}`);
+
 }
 
 function movePrev(event){
@@ -154,7 +198,9 @@ function imgClicked(event){
 
 function memoryClickedHandler(event){
   console.log('memoryClickedHandler');
-  if(event.target.alt){
+  
+  if (event.target.alt) {
+    console.log('event.target.alt is true');
     imgClicked(event);
   }
   if(event.target.className === 'prev'){
@@ -167,22 +213,13 @@ function memoryClickedHandler(event){
   }
 }
 
-
 let componentEl = document.getElementById('memory');
 componentEl.addEventListener('click', memoryClickedHandler);
-// componentEl.addEventListener('click', movePrev);
-// componentEl.addEventListener('click', imgClicked);
-
-
-
-
-
-
 
 // end handling methods***********
 
 
-
+renderSlideshow();
 
 
 
