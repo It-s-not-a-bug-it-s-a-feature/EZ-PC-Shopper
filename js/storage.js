@@ -1,17 +1,17 @@
 'use strict';
 
-let configuredComputer = Object();
+//let configuredComputer = Object();
 
-function writeToStorage(computerCategory) {
-  let stringifiedThing = JSON.stringify(configuredComputer);
-  localStorage.setItem(computerCategory, stringifiedThing);
+function writeToStorage(storageKey, objToStore) {
+  let stringifiedThing = JSON.stringify(objToStore);
+  localStorage.setItem(storageKey, stringifiedThing);
 }
 
 // Remove this variable assignment when it's no longer needed ****
-let computerCategory = 'productivity';
+// let computerCategory = 'productivity';
 
-// *** Put this into an event handler and set computerCategory!! *****
-writeToStorage(computerCategory);
+// // *** Put this into an event handler and set computerCategory!! *****
+// writeToStorage(computerCategory);
 
 function readFromStorage(computerCategory) {
   let retrievedThing = localStorage.getItem(computerCategory);
