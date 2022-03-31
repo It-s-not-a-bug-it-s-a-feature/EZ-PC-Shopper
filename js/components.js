@@ -73,11 +73,11 @@ new Component('Storage', 'Crucial P2 1TB', 95, 'Advanced', 'imgs/storage3.jpg');
 new Component('Storage', 'SeaGate FireCoulda', 45, 'Basic', 'imgs/storage1.jpg');
 new Component('Storage', 'Team MP33 1TB', 80, 'Middle', 'imgs/storage2.jpg');
 
-new Component('Videocard', 'GE-Force GT1030', 140, 'Basic', 'imgs/gpu1.jpg');
-new Component('Videocard', 'Intel UHD 630', 150, 'Middle', 'imgs/gpu2.jpg');
-new Component('Videocard', 'MSI GE-Force GTX 660 TI 2GB', 125, 'Basic', 'imgs/gpu1.jpg');
-new Component('Videocard', 'MSI GE-Force GTX 960 4GB', 160, 'Middle', 'imgs/gpu2.jpg');
-new Component('Videocard', 'GE-Force GTX 1660 6GB', 220, 'Advanced', 'imgs/gpu3.jpg');
+new Component('Videocard', 'GE-Force GT1030', 140, 'Basic', 'imgs/gpu.jpg');
+new Component('Videocard', 'Intel UHD 630', 150, 'Middle', 'imgs/gpu1.jpg');
+new Component('Videocard', 'MSI GE-Force GTX 660 TI 2GB', 125, 'Basic', 'imgs/gpu.jpg');
+new Component('Videocard', 'MSI GE-Force GTX 960 4GB', 160, 'Middle', 'imgs/gpu1.jpg');
+new Component('Videocard', 'GE-Force GTX 1660 6GB', 220, 'Advanced', 'imgs/gpu2.jpg');
 
 /* setup categorical configurations */
 function Computer(name, chassisID, motherboardID, videocardID, processorID, memoryID, storageID) {
