@@ -808,3 +808,4 @@ storageComponentEl.addEventListener('click', storageClickedHandler);
 // end handling methods***********
 
 renderInitialImages();
+
