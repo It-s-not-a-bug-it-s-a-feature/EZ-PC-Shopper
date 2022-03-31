@@ -90,6 +90,7 @@ function Computer(name) {
   this.storage = storageObjects [1];
 }
 
+
 /* test system using template constructor */
 let basicComputer = new Computer('Basic User');
 let midLevelComputer = new Computer('Productivity User');
