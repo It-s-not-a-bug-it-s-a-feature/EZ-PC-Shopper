@@ -386,15 +386,15 @@ let cpuComponentEl = document.getElementById('processor');
 // CHASSIS COMPONENT EVENTS
 
 // END CHASSIS COMPONENT EVENTS
-
+// ************************************************************************************************************
 // VIDEOCARD COMPONENT EVENTS
 
 // END VIDEOCARD COMPONENT EVENTS
-
+// ************************************************************************************************************
 // MOTHERBOARD COMPONENT EVENTS
 
 // END MOTHERBOARD COMPONENT EVENTS
-
+// ************************************************************************************************************
 // STORAGE COMPONENT EVENTS
 
 // END STORAGE COMPONENT EVENTS
