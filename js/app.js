@@ -2,12 +2,12 @@
 'use strict';
 
 /* the following objects are already created with defaults 
-basicComputer
+selectedComputer
 midLevelComputer
 highEndComputer
 
 The code that calls this page (ie user clicks-in from index.html) should use the
-basicComputer, midLevelComputer, or highEndComputer examples in components.js and
+selectedComputer, midLevelComputer, or highEndComputer examples in components.js and
 just create an object accordinly.
 */
 
@@ -26,30 +26,30 @@ let tableBody = document.getElementById('tableBody');
 //  display the default computer component images in 'slideshow' format
 function renderInitialImages() {
   //  post images for memory
-  memoryImgTag.src = basicComputer.memory.url;
-  console.log(`basicComputer.memory.model is: ${basicComputer.memory.model}`);
-  memoryImgTag.alt = basicComputer.memory.model;
+  memoryImgTag.src = selectedComputer.memory.url;
+  console.log(`selectedComputer.memory.model is: ${selectedComputer.memory.model}`);
+  memoryImgTag.alt = selectedComputer.memory.model;
   console.log(`memoryImgTag.alt is: ${memoryImgTag.alt}`);
 
   //  post images for processor
-  processorImgTag.src = basicComputer.processor.url;
-  processorImgTag.alt = basicComputer.processor.model;
+  processorImgTag.src = selectedComputer.processor.url;
+  processorImgTag.alt = selectedComputer.processor.model;
 
   //  post images for storage
-  storageImgTag.src = basicComputer.storage.url;
-  storageImgTag.alt = basicComputer.storage.model;
+  storageImgTag.src = selectedComputer.storage.url;
+  storageImgTag.alt = selectedComputer.storage.model;
 
   //  post images for chassis
-  chassisImgTag.src = basicComputer.chassis.url;
-  chassisImgTag.alt = basicComputer.chassis.model;
+  chassisImgTag.src = selectedComputer.chassis.url;
+  chassisImgTag.alt = selectedComputer.chassis.model;
 
   //  post images for videocard
-  videocardImgTag.src = basicComputer.videocard.url;
-  videocardImgTag.alt = basicComputer.videocard.model;
+  videocardImgTag.src = selectedComputer.videocard.url;
+  videocardImgTag.alt = selectedComputer.videocard.model;
 
   //  post images for motherboard
-  motherboardImgTag.src = basicComputer.motherboard.url;
-  motherboardImgTag.alt = basicComputer.motherboard.model;
+  motherboardImgTag.src = selectedComputer.motherboard.url;
+  motherboardImgTag.alt = selectedComputer.motherboard.model;
 }
 
 //RowKill function
@@ -261,16 +261,17 @@ function imgClicked(event) {
     return;
   } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.memory.url = memoryObjects[memoryIndex].url;
-    basicComputer.memory.alt = memoryObjects[memoryIndex].model;
-    basicComputer.memory.model = memoryObjects[memoryIndex].model;
-    basicComputer.memory.description = memoryObjects[memoryIndex].description;
+    selectedComputer.memory.url = memoryObjects[memoryIndex].url;
+    selectedComputer.memory.alt = memoryObjects[memoryIndex].model;
+    selectedComputer.memory.model = memoryObjects[memoryIndex].model;
+    selectedComputer.memory.description = memoryObjects[memoryIndex].description;
+    selectedComputer.memory.price = memoryObjects[memoryIndex].price;
 
     renderItemsList(selectedComputer);
 
     //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.componentType}`);
-    writeToStorage(basicComputer.userName, basicComputer);
+    console.log(`writing computer object to local storage: ${selectedComputer.componentType}`);
+    writeToStorage(selectedComputer.userName, selectedComputer);
   }
 }
 
@@ -365,16 +366,17 @@ function cpuImgClicked(event) {
     return;
   } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.processor.url = processorObjects[cpuIndex].url;
-    basicComputer.processor.alt = processorObjects[cpuIndex].model;
-    basicComputer.processor.model = processorObjects[cpuIndex].model;
-    basicComputer.processor.description = processorObjects[cpuIndex].description;
+    selectedComputer.processor.url = processorObjects[cpuIndex].url;
+    selectedComputer.processor.alt = processorObjects[cpuIndex].model;
+    selectedComputer.processor.model = processorObjects[cpuIndex].model;
+    selectedComputer.processor.description = processorObjects[cpuIndex].description;
+    selectedComputer.processor.price = processorObjects[cpuIndex].price;
 
     renderItemsList(selectedComputer);
 
     //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
+    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+    writeToStorage(selectedComputer.userName, selectedComputer);
   }
 }
 
@@ -469,16 +471,17 @@ function chassisImgClicked(event) {
     return;
   } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.chassis.url = chassisObjects[chassisIndex].url;
-    basicComputer.chassis.alt = chassisObjects[chassisIndex].model;
-    basicComputer.chassis.model = chassisObjects[chassisIndex].model;
-    basicComputer.chassis.description = chassisObjects[chassisIndex].description;
+    selectedComputer.chassis.url = chassisObjects[chassisIndex].url;
+    selectedComputer.chassis.alt = chassisObjects[chassisIndex].model;
+    selectedComputer.chassis.model = chassisObjects[chassisIndex].model;
+    selectedComputer.chassis.description = chassisObjects[chassisIndex].description;
+    selectedComputer.chassis.price = chassisObjects[chassisIndex].price;
 
     renderItemsList(selectedComputer);
 
     //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
+    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+    writeToStorage(selectedComputer.userName, selectedComputer);
   }
 }
 
@@ -573,16 +576,17 @@ function videocardImgClicked(event) {
     return;
   } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.videocard.url = videocardObjects[videocardIndex].url;
-    basicComputer.videocard.alt = videocardObjects[videocardIndex].model;
-    basicComputer.videocard.model = videocardObjects[videocardIndex].model;
-    basicComputer.videocard.description = videocardObjects[videocardIndex].description;
+    selectedComputer.videocard.url = videocardObjects[videocardIndex].url;
+    selectedComputer.videocard.alt = videocardObjects[videocardIndex].model;
+    selectedComputer.videocard.model = videocardObjects[videocardIndex].model;
+    selectedComputer.videocard.description = videocardObjects[videocardIndex].description;
+    selectedComputer.videocard.price = videocardObjects[videocardIndex].price;
 
     renderItemsList(selectedComputer);
 
     //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
+    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+    writeToStorage(selectedComputer.userName, selectedComputer);
   }
 }
 
@@ -677,16 +681,17 @@ function motherboardImgClicked(event) {
     return;
   } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.motherboard.url = motherboardObjects[motherboardIndex].url;
-    basicComputer.motherboard.alt = motherboardObjects[motherboardIndex].model;
-    basicComputer.motherboard.model = motherboardObjects[motherboardIndex].model;
-    basicComputer.motherboard.description = motherboardObjects[motherboardIndex].description;
+    selectedComputer.motherboard.url = motherboardObjects[motherboardIndex].url;
+    selectedComputer.motherboard.alt = motherboardObjects[motherboardIndex].model;
+    selectedComputer.motherboard.model = motherboardObjects[motherboardIndex].model;
+    selectedComputer.motherboard.description = motherboardObjects[motherboardIndex].description;
+    selectedComputer.motherboard.price = motherboardObjects[motherboardIndex].price;
 
     renderItemsList(selectedComputer);
 
     //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
+    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+    writeToStorage(selectedComputer.userName, selectedComputer);
   }
 }
 
@@ -782,16 +787,17 @@ function storageImgClicked(event) {
     return;
   } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.storage.url = storageObjects[storageIndex].url;
-    basicComputer.storage.alt = storageObjects[storageIndex].model;
-    basicComputer.storage.model = storageObjects[storageIndex].model;
-    basicComputer.storage.description = storageObjects[storageIndex].description;
+    selectedComputer.storage.url = storageObjects[storageIndex].url;
+    selectedComputer.storage.alt = storageObjects[storageIndex].model;
+    selectedComputer.storage.model = storageObjects[storageIndex].model;
+    selectedComputer.storage.description = storageObjects[storageIndex].description;
+    selectedComputer.storage.price = storageObjects[storageIndex].price;
 
     renderItemsList(selectedComputer);
 
     //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
+    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+    writeToStorage(selectedComputer.userName, selectedComputer);
   }
 }
 
