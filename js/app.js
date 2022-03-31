@@ -133,9 +133,47 @@ renderItemsList(selectedComputer);
 // event handling methods*********
 
 function moveNext(event){
-  let currentMemory = selectedComputer.memory;
-
+  let clickedItem = event.target;
+  console.log(clickedItem);
+  let memoryIndex = memoryObjects.findIndex(event.target.url);
+  if(memoryIndex > -1 && memoryIndex < memoryObjects.length){
+    memoryIndex++;
+  }
+  console.log(`Memory index: ${memoryIndex}`);
 }
+
+function movePrev(event){
+  let clickedItem = event.target;
+  console.log(clickedItem);
+}
+
+function imgClicked(event){
+  let clickedItem = event.target;
+  console.log(clickedItem);
+}
+
+function memoryClickedHandler(event){
+  console.log('memoryClickedHandler');
+  if(event.target.alt){
+    imgClicked(event);
+  }
+  if(event.target.className === 'prev'){
+    movePrev(event);
+  }
+
+  if(event.target.className === 'next'){
+    console.log('memoryClickedHandler next');
+    moveNext(event);
+  }
+}
+
+
+let componentEl = document.getElementById('memory');
+componentEl.addEventListener('click', memoryClickedHandler);
+// componentEl.addEventListener('click', movePrev);
+// componentEl.addEventListener('click', imgClicked);
+
+
 
 
 
