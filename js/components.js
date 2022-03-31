@@ -61,7 +61,7 @@ new Component('Processor', 'Ryzen 5 5600X', 230, 'Middle', 'imgs/cpu2.jpg');
 
 new Component('Memory', 'GSkill RipJaws V', 60, 'Middle', 'imgs/ram2.jpg');
 new Component('Memory', '8GB DootJigglers', 50, 'Basic', 'imgs/ram1.jpg');
-new Component('Memory', 'Corsair Vengence LPX 8GB', 50, 'Basic', '../imgs/ram1.jpg');
+new Component('Memory', 'Corsair Vengence LPX 8GB', 50, 'Basic', 'imgs/ram1.jpg');
 new Component('Memory', 'Elite+ 16GB', 60, 'Middle', 'imgs/ram2.jpg');
 new Component('Memory', 'T-Force Vulcan', 65, 'Advanced', 'imgs/ram3.jpg');
 new Component('Memory', 'Team T-Force 16GB', 75, 'Advanced', 'imgs/ram3.jpg');
@@ -100,6 +100,6 @@ let highEndComputer = new Computer('Gamer User', 6, 6, 6, 6, 6, 5);
 /* test a system setup in an array */
 //let testSetup = [chassis["Cooler Master MB320L"], motherboards["MSI B250 M3"], cpus["AMD Ryzen 5 2600"]];
 
-console.log(`basicComputer: ${basicComputer}`);
+console.log(`basicComputer: ${basicComputer.chassis.url}, ${basicComputer.motherboard.url}, ${basicComputer.videocard.url}, ${basicComputer.processor.url}, ${basicComputer.memory.url}, ${basicComputer.storage.url}`);
 console.log(`midLevelComputer: ${midLevelComputer}`);
 console.log(`highEndComputer: ${highEndComputer}`);
