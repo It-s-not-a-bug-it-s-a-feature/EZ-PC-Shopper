@@ -490,6 +490,105 @@ let chassisComponentEl = document.getElementById('chassis');
 // END VIDEOCARD COMPONENT EVENTS
 // ************************************************************************************************************
 // MOTHERBOARD COMPONENT EVENTS
+function motherboardMoveNext(event) {
+  let motherboardIndex = -1;
+
+  for (let idx = 0; idx < motherboardObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (motherboardObjects[idx].model === motherboardImgTag.alt) {
+      console.log(`Found processorObject at index ${idx}`);
+      motherboardIndex = idx;
+      break;
+    }
+  }
+  if (motherboardIndex < 0) {
+    console.log('BREAK: motherboardIndex is < 0');
+    return;
+  } else if (motherboardIndex === motherboardObjects.length - 1) {
+    console.log('motherboardIndex was at end, reset to 0');
+    motherboardIndex = 0;
+  } else {
+    motherboardIndex++;
+    console.log(`motherboardIndex incremented to: ${motherboardIndex}`);
+  }
+
+  motherboardImgTag.src = motherboardObjects[motherboardIndex].url;
+  motherboardImgTag.alt = motherboardObjects[motherboardIndex].model;
+}
+
+function motherboardMovePrev(event) {
+  let motherboardIndex = -1;
+
+  for (let idx = 0; idx < motherboardObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (motherboardObjects[idx].model === motherboardImgTag.alt) {
+      console.log(`Found motherboardObject at index ${idx}`);
+      motherboardIndex = idx;
+      break; //  we found the index in the component definition array
+    }
+  }
+  if (motherboardIndex < 0) {
+    console.log(`BREAK: motherboardIndex is < 0`);
+    return;
+  } else if (motherboardIndex < 1) {
+    // index is at zero and must be reset to end
+    motherboardIndex = motherboardObjects.length - 1;
+  } else {
+    // index is somewhere within the valid range so decrement it
+    motherboardIndex--;
+    console.log(`motherboardIndex decremented to: ${motherboardIndex}`);
+  }
+
+  console.log(`setting motherboardImgTag src and alt at motherboardIndex ${motherboardIndex}`);
+  motherboardImgTag.src = motherboardObjects[motherboardIndex].url;
+  motherboardImgTag.alt = motherboardObjects[motherboardIndex].model;
+}
+
+function motherboardImgClicked(event) {
+  let motherboardIndex = -1;
+  console.log('entered MB img clicked method');
+  for (let idx = 0; idx < motherboardObjects.length; idx++) {
+
+    if (motherboardObjects[idx].model === motherboardImgTag.alt) {
+      motherboardIndex = idx;
+      break;
+    }
+  }
+  //  get current alt attribute on the current image
+  if (motherboardIndex < 0) {
+    console.log(`BREAK: motherboardIndex is < 0`);
+    return;
+  } else {
+    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+    basicComputer.motherboard.url = motherboardObjects[motherboardIndex].url;
+    basicComputer.motherboard.alt = motherboardObjects[motherboardIndex].model;
+    basicComputer.motherboard.model = motherboardObjects[motherboardIndex].model;
+    basicComputer.motherboard.description = motherboardObjects[motherboardIndex].description;
+
+    //  ask the methods in storage.js to store the computer object into local storage
+    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
+    writeToStorage(basicComputer.userName, basicComputer);
+  }
+}
+
+function motherBoardClickedHandler(event){
+  console.log('entered motherBoardClickedHandler function');
+
+  if (event.target.className === 'motherboardImg') {
+    console.log('event.target.classname is motherboardImg');
+    motherboardImgClicked(event);
+  }
+
+  if(event.target.className === 'prev'){
+    motherboardMovePrev(event);
+  }
+
+  if(event.target.className === 'next'){
+    motherboardMoveNext(event);
+  }
+}
+
+let motherBoardComponentEl = document.getElementById('motherboard');
 
 // END MOTHERBOARD COMPONENT EVENTS
 // ************************************************************************************************************
@@ -504,7 +603,7 @@ ramComponentEl.addEventListener('click', memoryClickedHandler);
 cpuComponentEl.addEventListener('click', cpuClickedHandler);
 chassisComponentEl.addEventListener('click', chassisClickedHandler);
 // videoCardComponentEl.addEventListener('click', videoCardClickedHandler);
-// motherBoardComponentEl.addEventListener('click', motherBoardClickedHandler);
+motherBoardComponentEl.addEventListener('click', motherBoardClickedHandler);
 // storageComponentEl.addEventListener('click', storageClickedHandler);
 // end handling methods***********
 
