@@ -11,6 +11,19 @@ basicComputer, midLevelComputer, or highEndComputer examples in components.js an
 just create an object accordinly.
 */
 
+/***************    Store username *****************/
+let username = document.getElementById('username');
+let usernameButton = document.getElementById('form');
+usernameButton.addEventListener('submit', writeUsernameToStorage);
+
+
+function writeUsernameToStorage(event) {
+  event.preventDefault();
+  let stringifiedThing = event.target.username.value;
+  localStorage.setItem('username', stringifiedThing);
+  console.log('Working');
+}
+
 // This represents the user's selected computer type from home screen, used here for testing.
 let selectedComputer = basicComputer;
 
@@ -309,3 +322,4 @@ componentEl.addEventListener('click', memoryClickedHandler);
 // end handling methods***********
 
 renderInitialImages();
+
