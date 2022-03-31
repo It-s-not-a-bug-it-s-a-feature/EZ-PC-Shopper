@@ -29,19 +29,3 @@ function readFromStorage(computerCategory) {
 
 // let thingFromStorage = readFromStorage('testing');
 // console.log(thingFromStorage);
-
-/************     Username local storage     ************/
-let username = document.getElementById('username');
-let usernameButton = document.getElementById('submit');
-usernameButton.addEventListener('click', writeUsernameToStorage);
-
-function writeUsernameToStorage(event) {
-  event.preventDefault();
-  let stringifiedThing = JSON.stringify(username.value);
-  console.log(username.value);
-  localStorage.setItem('username', stringifiedThing);  
-  alert('Thanks! Now click a category');
-}
-
-
-

@@ -1,5 +1,27 @@
 'use strict';
 
+/************     Username local storage     ************/
+let username = document.getElementById('username');
+let usernameButton = document.getElementById('usernameButton');
+let h2Guy = document.getElementById('h2Guy');
+usernameButton.addEventListener('click', writeUsernameToStorage);
+
+
+function writeUsernameToStorage(event) {
+  event.preventDefault();
+  let stringifiedThing = JSON.stringify(username.value);
+  localStorage.setItem('username', stringifiedThing);
+  retreiveUsernameStorage();
+}
+
+function retreiveUsernameStorage() {
+  let retrievedThing = localStorage.getItem('username');
+  let parsedThing = JSON.parse(retrievedThing);
+  let username = parsedThing;
+  h2Guy = username;
+  console.log(typeof(username));
+}
+
 // This represents the user's selected computer type from home screen.
 let selectedComputer = basicComputer;
 
@@ -128,4 +150,7 @@ function renderItemsList(selectedComputer) {
 }
 
 renderItemsList(selectedComputer);
+
+
+
 
