@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 /* the following objects are already created with defaults 
@@ -183,17 +184,16 @@ function moveNext(event) {
   let memoryIndex = -1;
 
   for (let idx = 0; idx < memoryObjects.length; idx++) {
-    
+    console.log(`searching for match staring with index ${idx}`);
     if (memoryObjects[idx].model === memoryImgTag.alt) {
+      console.log(`Found memoryobject at index ${idx}`);
       memoryIndex = idx;
       break;
     }
   }
- 
   if (memoryIndex < 0) {
     console.log('BREAK: memoryIndex is < 0');
     return;
-    
   } else if (memoryIndex === memoryObjects.length - 1) {
     console.log('memoryIndex was at end, reset to 0');
     memoryIndex = 0;
@@ -207,21 +207,47 @@ function moveNext(event) {
 }
 
 function movePrev(event) {
-  console.log('entered memory component movePrev function');
-  let clickedItem = event.target;
-  console.log(clickedItem);
+  let memoryIndex = -1;
+
+  for (let idx = 0; idx < memoryObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (memoryObjects[idx].model === memoryImgTag.alt) {
+      console.log(`Found memoryobject at index ${idx}`);
+      memoryIndex = idx;
+      break; //  we found the index in the component definition array
+    }
+  }
+  if (memoryIndex < 0) {
+    console.log(`BREAK: memoryIndex is < 0`);
+    return;
+  } else if (memoryIndex < 1) {
+    // index is at zero and must be reset to end
+    memoryIndex = memoryObjects.length - 1;
+  } else {
+    // index is somewhere within the valid range so decrement it
+    memoryIndex--;
+    console.log(`memoryIndex decremented to: ${memoryIndex}`);
+  }
+
+  console.log(`setting memoryImgTag src and alt at memoryIndex ${memoryIndex}`);
+  memoryImgTag.src = memoryObjects[memoryIndex].url;
+  memoryImgTag.alt = memoryObjects[memoryIndex].model;
 }
 
-function imgClicked(event){
+function imgClicked(event) {
+  let memoryIndex = -1;
+
   for (let idx = 0; idx < memoryObjects.length; idx++) {
-    
+
     if (memoryObjects[idx].model === memoryImgTag.alt) {
-      memoryIndex = idx;
+      console.log('BREAK: memoryIndex is < 0');
       break;
     }
   }
 
-  if (memory)
+  if (memoryIndex < 0) {
+    console.log()
+  }
   //  get current alt attribute on the current image
 
   //  store thta attribute's value to the computer object's memory property
