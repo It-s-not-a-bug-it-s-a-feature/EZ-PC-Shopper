@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/reset.css">
+  <!-- <link rel="stylesheet" href="css/reset.css"> -->
   <link rel="stylesheet" href="css/style.css">
-  <title>EZ PC | Build Area</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Londrina+Outline&family=Londrina+Solid&family=Poppins:wght@200;400;500&family=Sigmar+One&family=Skranji&display=swap" rel="stylesheet">
+<title>EZ PC | Build Area</title>
 </head>
 
-<!--Header-->
-<header id="heroImg">
+<body>
+  <!--Header-->
+<header class="header">
   <nav role="navigation">
     <div id="menuToggle">
       <input type="checkbox" />
@@ -19,85 +24,99 @@
       <span></span>
       <span></span>
       <ul id="menu">
-        <a href="#">
+        <a href="index.html">
           <li>Home</li>
         </a>
-        <a href="#">
+        <a href="aboutUs.html">
           <li>About</li>
         </a>
       </ul>
     </div>
   </nav>
 
-  <h1 id="headerH1">EZ-PC &#8482</h1>
+  <h1 class="otherH1">EZ-PC &#8482</h1>
 </header>
 
 <!--Main content-->
-<body>
-  <h2>Instructions:</h2>
-  <p>We put instructions here!</p>
+  <h2>Step 2: Make it yours.</h2>
+  <p id="instructions">We&apos;ve made recommendations for you in each of the categories below. Click through the images on each category to see your customization options. Then change your selections on the table below. Once you're happy with your choices, click the checkout button and everything you need for your new PC will be added to the cart.</p>
   <main id="mainBuild">
-  
     <!--The category images (nested in articles) are children of the section. Using grid for section. Use flex for articles-->
     <section class="itemSelector">
-      <article class="items">
-        <p></p>
-        <img src="#" alt="">
-        <div id="item1">Select</div>
+      <!--parent-->
+      <article id="memory" class="items">
+        <p class="caption">RAM</p>
+        <div class="prev">❮</div>
+        <div class="next">❯</div>
+        <img src="" alt="" id="memoryImg" class="memoryImg">
       </article>
-        
-      <article class="items">
-        <p></p>
-        <img src="#" alt="">
-        <div id="item2">Select</div>
+
+      <article id="processor" class="items">
+        <p class="caption">CPU</p>
+        <div class="prev">❮</div>
+        <div class="next">❯</div>
+        <img src="" alt="" id="processorImg" class="processorImg">
       </article>
-        
-      <article class="items">
-        <p></p>
-        <img src="#" alt="">
-        <div id="item3">Select</div>
+
+      <article id="storage" class="items">
+        <p class="caption">Storage</p>
+        <div class="prev">❮</div>
+        <div class="next">❯</div>
+        <img src="" alt="" id="storageImg" class="storageImg">
       </article>
-        
-      <article class="items">
-        <p></p>
-        <img src="#" alt="">
-        <div id="item4">Select</div>
+
+      <article id="chassis" class="items">
+        <p class="caption">Tower</p>
+        <div class="prev">❮</div>
+        <div class="next">❯</div>
+        <img src="" alt="" id="chassisImg" class="chassisImg">
       </article>
-        
-      <article class="items">
-        <p></p>
-        <img src="#" alt="">
-        <div id="item5">Select</div>
+
+      <article id="videocard" class="items">
+        <p class="caption">Video Card</p>
+        <div class="prev">❮</div>
+        <div class="next">❯</div>
+        <img src="" alt="" id="videocardImg" class="videocardImg">
       </article>
-        
-      <article class="items">
-        <p></p>
-        <img src="#" alt="">
-        <div id="item6">Select</div>
+
+      <article id="motherboard" class="items">
+        <p class="caption">Motherboard</p>
+        <div class="prev">❮</div>
+        <div class="next">❯</div>
+        <img src="" alt="" id="motherboardImg" class="motherboardImg">
       </article>
     </section>
   </main>
 
-<!--Table-->
+  <!--Table-->
   <table class="tableContents">
     <thead>
-      <th>Items</th> <!--Will be above the listed items-->
-      <th>Total</th> <!--Will be above the total populated below-->
+      <th>Component</th>
+      <th>Selection</th>
+      <!--Will be above the listed items-->
+      <th>Total</th>
+      <!--Will be above the total populated below-->
     </thead>
-    <tbody>
-      <tr>
-        <td>`${item}`</td> <!--List of items selected will be appended here-->
-        <td>`${total}`</td> <!--Total will be appended here-->
-      </tr>
+    <tbody id="tableBody">
+      <!--List of items selected will be appended here-->
+      <!--Total will be appended here-->
     </tbody>
   </table>
-
-<!--Footer-->
+  <div class="container">
+    <div>
+      <a href="#" class="btn btn-1">CHECK OUT</a>
+    </br>
+    </br>
+    </br>
+    </div>
+  </div>
+  <!--Footer-->
   <footer>
     <p>EZ-PC&#8482 | 1123 South Seattle Rd. | 206-555-0076 </p>
   </footer>
   <script src="js/storage.js"></script>
   <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
 </body>
 
 </html>

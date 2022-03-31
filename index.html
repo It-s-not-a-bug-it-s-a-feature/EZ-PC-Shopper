@@ -13,9 +13,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato&family=Londrina+Outline&family=Monoton&family=Poppins:wght@200;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Londrina+Outline&family=Londrina+Solid&family=Poppins:wght@200;500&family=Sigmar+One&family=Skranji&display=swap" rel="stylesheet">
   <title>EZ PC&#8482</title>
 </head>
 
@@ -40,30 +38,33 @@
             <li>About</li>
           </a>
         </ul>
-        <a href="shopCart.html"><i class="fa-solid fa-cart-shopping fa-2x" id="shoppingCart"></i></a>
+        <!-- <a href="shopCart.html"><i class="fa-solid fa-cart-shopping fa-2x" id="shoppingCart"></i></a> -->
       </div>
 
     </nav>
 
 
-    <h1 id="headerH1">EZ-PC &#8482</h1>
+    <h1 id="headerH1">EZ-PC<sup>&#8482</sup></h1>
   </header>
 
   <main>
     <section id="pitchContent">
-
-      <h2>Convoluted made easy</h2>
-      <p>Are you tired of the hassle of having to scroll through numerous pages of parts, difficult to decipher part
-        descriptors, and no way of telling what you're buying? We've come up with an innovative way to give you a
-        comfortable shopping experience without the hassle of having to research each and every part. Get started
-        with our EZ-PC builder below!</p>
+      <h2 class="motto" >Order your custom PC today. Easy is our guarantee.</h2>
+      <p id="pitchContent">We get it: shopping for a new computer is a hassle. That&apos;s why we&apos;ve created an innovative way to shop for your next PC, whether it&apos;s for gaming, tracking spreadsheets, or just browsing the web. We recommend all the specifications to fit your lifestyle, then we give you the option to customize every component yourself. Don't let stress and indecision get in the way of your next PC. Make it easy. Make it EZ-PC.</p>  
     </section>
 
-    <h3>How do you plan to use your PC?</h3>
+    <h3>Get started here:</h3>
+
+    <!--Text input for user to enter name and store into local storage-->
+    <form id="form">
+      <label for="username">Enter your name here: <input type="text" name="username" id="username"></label>
+    <button type="submit">Submit</button>
+    </form>
+    <h4>Step 1: Tell us how you plan to use your PC:</h4>
     <section id="categories">
-      <a href="build.html" id="basic"><img src="imgs/home-office.jpg" alt="Office computers"></a>
-      <a href="build.html" id="gamer"><img src="imgs/gaming.jpg" alt="Gaming computers"></a>
-      <a href="build.html" id="productivity"><img src="imgs/productivity.jpg" alt="Productivity computers"></a>
+      <a class="overlay-a" href="build.html" id="basic"><div class="overlay-text">Home Use</div><img src="imgs/home.jpg" alt="Office computers"></a>
+      <a class="overlay-a" href="build.html" id="gamer"><div class="overlay-text">Gaming</div><img src="imgs/game.jpg" alt="Gaming computers"></a>
+      <a class="overlay-a" href="build.html" id="productivity"><div class="overlay-text">Productivity</div><img src="imgs/productiv.jpg" alt="Productivity computers"></a>
     </section>
   </main>
 
@@ -71,6 +72,8 @@
     <p>EZ-PC&#8482 | 1123 South Seattle Rd. | 206-555-0076 </p>
   </footer>
   <!--Footer-->
+  <script src="js/components.js"></script>
+  <script src="js/storeUsernameIndex.js"></script>
   <script src="js/app.js"></script>
 </body>
 
