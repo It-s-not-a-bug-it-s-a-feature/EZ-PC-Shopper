@@ -180,13 +180,10 @@ renderItemsList(selectedComputer);
 
 //  MEMORY COMPONENT EVENTS
 function moveNext(event) {
-  console.log(event.target);
   let memoryIndex = -1;
-  console.log(`memoryImgTag.alt: ${memoryImgTag.alt}`);
-  console.log(`memoryImgTag.src: ${memoryImgTag.src}`);
 
   for (let idx = 0; idx < memoryObjects.length; idx++) {
-    console.log(`memoryObjects[idx].url is: ${memoryObjects[idx].model}`);
+    
     if (memoryObjects[idx].model === memoryImgTag.alt) {
       memoryIndex = idx;
       break;
@@ -204,9 +201,9 @@ function moveNext(event) {
     memoryIndex++;
     console.log(`memoryIndex incremented to: ${memoryIndex}`);
   }
+
   memoryImgTag.src = memoryObjects[memoryIndex].url;
   memoryImgTag.alt = memoryObjects[memoryIndex].model;
-
 }
 
 function movePrev(event) {
@@ -216,8 +213,21 @@ function movePrev(event) {
 }
 
 function imgClicked(event){
-  let clickedItem = event.target;
-  console.log(clickedItem);
+  for (let idx = 0; idx < memoryObjects.length; idx++) {
+    
+    if (memoryObjects[idx].model === memoryImgTag.alt) {
+      memoryIndex = idx;
+      break;
+    }
+  }
+
+  if (memory)
+  //  get current alt attribute on the current image
+
+  //  store thta attribute's value to the computer object's memory property
+
+  //  ask the methods in storage.js to store the computer object into local storage
+
 }
 
 function memoryClickedHandler(event){
