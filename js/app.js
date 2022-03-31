@@ -593,7 +593,105 @@ let motherBoardComponentEl = document.getElementById('motherboard');
 // END MOTHERBOARD COMPONENT EVENTS
 // ************************************************************************************************************
 // STORAGE COMPONENT EVENTS
+function storageMoveNext(event) {
+  let storageIndex = -1;
 
+  for (let idx = 0; idx < storageObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (storageObjects[idx].model === storageImgTag.alt) {
+      console.log(`Found processorObject at index ${idx}`);
+      storageIndex = idx;
+      break;
+    }
+  }
+  if (storageIndex < 0) {
+    console.log('BREAK: storageIndex is < 0');
+    return;
+  } else if (storageIndex === storageObjects.length - 1) {
+    console.log('storageIndex was at end, reset to 0');
+    storageIndex = 0;
+  } else {
+    storageIndex++;
+    console.log(`storageIndex incremented to: ${storageIndex}`);
+  }
+
+  storageImgTag.src = storageObjects[storageIndex].url;
+  storageImgTag.alt = storageObjects[storageIndex].model;
+}
+
+function storageMovePrev(event) {
+  let storageIndex = -1;
+
+  for (let idx = 0; idx < storageObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (storageObjects[idx].model === storageImgTag.alt) {
+      console.log(`Found storageObject at index ${idx}`);
+      storageIndex = idx;
+      break; //  we found the index in the component definition array
+    }
+  }
+  if (storageIndex < 0) {
+    console.log(`BREAK: storageIndex is < 0`);
+    return;
+  } else if (storageIndex < 1) {
+    // index is at zero and must be reset to end
+    storageIndex = storageObjects.length - 1;
+  } else {
+    // index is somewhere within the valid range so decrement it
+    storageIndex--;
+    console.log(`storageIndex decremented to: ${storageIndex}`);
+  }
+
+  console.log(`setting storageImgTag src and alt at storageIndex ${storageIndex}`);
+  storageImgTag.src = storageObjects[storageIndex].url;
+  storageImgTag.alt = storageObjects[storageIndex].model;
+}
+
+function storageImgClicked(event) {
+  let storageIndex = -1;
+  console.log('entered MB img clicked method');
+  for (let idx = 0; idx < storageObjects.length; idx++) {
+
+    if (storageObjects[idx].model === storageImgTag.alt) {
+      storageIndex = idx;
+      break;
+    }
+  }
+  //  get current alt attribute on the current image
+  if (storageIndex < 0) {
+    console.log(`BREAK: storageIndex is < 0`);
+    return;
+  } else {
+    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+    basicComputer.storage.url = storageObjects[storageIndex].url;
+    basicComputer.storage.alt = storageObjects[storageIndex].model;
+    basicComputer.storage.model = storageObjects[storageIndex].model;
+    basicComputer.storage.description = storageObjects[storageIndex].description;
+
+    //  ask the methods in storage.js to store the computer object into local storage
+    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
+    writeToStorage(basicComputer.userName, basicComputer);
+  }
+}
+
+function storageClickedHandler(event){
+  console.log('entered storageClickedHandler function');
+
+  if (event.target.className === 'storageImg') {
+    console.log('event.target.classname is storageImg');
+    storageImgClicked(event);
+  }
+
+  if(event.target.className === 'prev'){
+    storageMovePrev(event);
+  }
+
+  if(event.target.className === 'next'){
+    storageMoveNext(event);
+  }
+}
+
+let storageComponentEl = document.getElementById('storage');
 // END STORAGE COMPONENT EVENTS
 
 
@@ -604,7 +702,7 @@ cpuComponentEl.addEventListener('click', cpuClickedHandler);
 chassisComponentEl.addEventListener('click', chassisClickedHandler);
 // videoCardComponentEl.addEventListener('click', videoCardClickedHandler);
 motherBoardComponentEl.addEventListener('click', motherBoardClickedHandler);
-// storageComponentEl.addEventListener('click', storageClickedHandler);
+storageComponentEl.addEventListener('click', storageClickedHandler);
 // end handling methods***********
 
 renderInitialImages();
