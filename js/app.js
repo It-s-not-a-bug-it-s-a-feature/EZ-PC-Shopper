@@ -4,7 +4,7 @@
 let selectedComputer = basicComputer;
 
 // Function takes computer object and renders table with components, prices.
-function renderItemsList(selectedComputer){
+function renderItemsList(selectedComputer) {
   let tableBody = document.getElementById('tableBody');
 
   let rowElem = document.createElement('tr');
@@ -128,3 +128,4 @@ function renderItemsList(selectedComputer){
 }
 
 renderItemsList(selectedComputer);
+
