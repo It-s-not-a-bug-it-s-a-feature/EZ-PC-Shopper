@@ -278,25 +278,123 @@ function memoryClickedHandler(event){
   }
 }
 
-let componentEl = document.getElementById('memory');
+let ramComponentEl = document.getElementById('memory');
 // END MEMORY COMPONENT EVENTS
-
+// ************************************************************************************************************
 // CPU COMPONENT EVENTS
+function cpuMoveNext(event) {
+  let cpuIndex = -1;
 
+  for (let idx = 0; idx < processorObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (processorObjects[idx].model === processorImgTag.alt) {
+      console.log(`Found processorObject at index ${idx}`);
+      cpuIndex = idx;
+      break;
+    }
+  }
+  if (cpuIndex < 0) {
+    console.log('BREAK: cpuIndex is < 0');
+    return;
+  } else if (cpuIndex === processorObjects.length - 1) {
+    console.log('cpuIndex was at end, reset to 0');
+    cpuIndex = 0;
+  } else {
+    cpuIndex++;
+    console.log(`cpuIndex incremented to: ${cpuIndex}`);
+  }
+
+  processorImgTag.src = processorObjects[cpuIndex].url;
+  processorImgTag.alt = processorObjects[cpuIndex].model;
+}
+
+function cpuMovePrev(event) {
+  let cpuIndex = -1;
+
+  for (let idx = 0; idx < processorObjects.length; idx++) {
+    console.log(`searching for match staring with index ${idx}`);
+    if (processorObjects[idx].model === processorImgTag.alt) {
+      console.log(`Found processorObject at index ${idx}`);
+      cpuIndex = idx;
+      break; //  we found the index in the component definition array
+    }
+  }
+  if (cpuIndex < 0) {
+    console.log(`BREAK: cpuIndex is < 0`);
+    return;
+  } else if (cpuIndex < 1) {
+    // index is at zero and must be reset to end
+    cpuIndex = processorObjects.length - 1;
+  } else {
+    // index is somewhere within the valid range so decrement it
+    cpuIndex--;
+    console.log(`cpuIndex decremented to: ${cpuIndex}`);
+  }
+
+  console.log(`setting processorImgTag src and alt at cpuIndex ${cpuIndex}`);
+  processorImgTag.src = processorObjects[cpuIndex].url;
+  processorImgTag.alt = processorObjects[cpuIndex].model;
+}
+
+function cpuImgClicked(event) {
+  let cpuIndex = -1;
+
+  for (let idx = 0; idx < processorObjects.length; idx++) {
+
+    if (processorObjects[idx].model === processorImgTag.alt) {
+      cpuIndex = idx;
+      break;
+    }
+  }
+  //  get current alt attribute on the current image
+  if (cpuIndex < 0) {
+    console.log(`BREAK: cpuIndex is < 0`);
+    return;
+  } else {
+    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+    basicComputer.processor.url = processorObjects[cpuIndex].url;
+    basicComputer.processor.alt = processorObjects[cpuIndex].model;
+    basicComputer.processor.model = processorObjects[cpuIndex].model;
+    basicComputer.processor.description = processorObjects[cpuIndex].description;
+
+    //  ask the methods in storage.js to store the computer object into local storage
+    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
+    writeToStorage(basicComputer.userName, basicComputer);
+  }
+}
+
+function cpuClickedHandler(event){
+  console.log('entered cpuClickedHandler function');
+
+  if (event.target.className === 'processorImg') {
+    console.log('event.target.classname is processorImg');
+    cpuImgClicked(event);
+  }
+
+  if(event.target.className === 'prev'){
+    cpuMovePrev(event);
+  }
+
+  if(event.target.className === 'next'){
+    cpuMoveNext(event);
+  }
+}
+
+let cpuComponentEl = document.getElementById('processor');
 // END CPU COMPONENT EVENTS
-
+// ************************************************************************************************************
 // CHASSIS COMPONENT EVENTS
 
 // END CHASSIS COMPONENT EVENTS
-
+// ************************************************************************************************************
 // VIDEOCARD COMPONENT EVENTS
 
 // END VIDEOCARD COMPONENT EVENTS
-
+// ************************************************************************************************************
 // MOTHERBOARD COMPONENT EVENTS
 
 // END MOTHERBOARD COMPONENT EVENTS
-
+// ************************************************************************************************************
 // STORAGE COMPONENT EVENTS
 
 // END STORAGE COMPONENT EVENTS
@@ -304,8 +402,12 @@ let componentEl = document.getElementById('memory');
 
 
 /* REGISTER EVENT LISTENERS */
-componentEl.addEventListener('click', memoryClickedHandler);
-
+ramComponentEl.addEventListener('click', memoryClickedHandler);
+cpuComponentEl.addEventListener('click', cpuClickedHandler);
+// chassisComponentEl.addEventListener('click', chassisClickedHandler);
+// videoCardComponentEl.addEventListener('click', videoCardClickedHandler);
+// motherBoardComponentEl.addEventListener('click', motherBoardClickedHandler);
+// storageComponentEl.addEventListener('click', storageClickedHandler);
 // end handling methods***********
 
 renderInitialImages();
