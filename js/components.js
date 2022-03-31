@@ -61,7 +61,7 @@ new Component('Processor', 'Ryzen 5 5600X', 230, 'Middle', 'imgs/cpu2.jpg');
 
 new Component('Memory', 'GSkill RipJaws V', 60, 'Middle', 'imgs/ram2.jpg');
 new Component('Memory', '8GB DootJigglers', 50, 'Basic', 'imgs/ram1.jpg');
-new Component('Memory', 'Corsair Vengence LPX 8GB', 50, 'Basic', '../imgs/ram1.jpg');
+new Component('Memory', 'Corsair Vengence LPX 8GB', 50, 'Basic', 'imgs/ram1.jpg');
 new Component('Memory', 'Elite+ 16GB', 60, 'Middle', 'imgs/ram2.jpg');
 new Component('Memory', 'T-Force Vulcan', 65, 'Advanced', 'imgs/ram3.jpg');
 new Component('Memory', 'Team T-Force 16GB', 75, 'Advanced', 'imgs/ram3.jpg');
@@ -80,26 +80,26 @@ new Component('Videocard', 'MSI GE-Force GTX 960 4GB', 160, 'Middle', 'imgs/gpu2
 new Component('Videocard', 'GE-Force GTX 1660 6GB', 220, 'Advanced', 'imgs/gpu3.jpg');
 
 /* setup categorical configurations */
-function Computer(name) {
+function Computer(name, chassisID, motherboardID, videocardID, processorID, memoryID, storageID) {
   this.userName = name;
-  this.chassis = chassisObjects[0];
-  this.motherboard = motherboardObjects[0];
-  this.videocard = videocardObjects [0];
-  this.processor = processorObjects [0];
-  this.memory = memoryObjects [0];
-  this.storage = storageObjects [1];
+  this.chassis = chassisObjects[chassisID];
+  this.motherboard = motherboardObjects[motherboardID];
+  this.videocard = videocardObjects [videocardID];
+  this.processor = processorObjects [processorID];
+  this.memory = memoryObjects [memoryID];
+  this.storage = storageObjects [storageID];
 }
 
 
 
 /* test system using template constructor */
-let basicComputer = new Computer('Basic User');
-let midLevelComputer = new Computer('Productivity User');
-let highEndComputer = new Computer('Gamer User');
+let basicComputer = new Computer('BasicUser', 0, 0, 0, 0, 0, 0);
+let midLevelComputer = new Computer('ProductivityUser', 3, 3, 3, 3, 3, 3);
+let highEndComputer = new Computer('HighPerfUser', 6, 6, 6, 6, 6, 5);
 
 /* test a system setup in an array */
 //let testSetup = [chassis["Cooler Master MB320L"], motherboards["MSI B250 M3"], cpus["AMD Ryzen 5 2600"]];
 
-console.log(`basicComputer: ${basicComputer}`);
-console.log(midLevelComputer);
-console.log(highEndComputer);
+console.log(`basicComputer: ${basicComputer.chassis.url}, ${basicComputer.motherboard.url}, ${basicComputer.videocard.url}, ${basicComputer.processor.url}, ${basicComputer.memory.url}, ${basicComputer.storage.url}`);
+console.log(`midLevelComputer: ${midLevelComputer}`);
+console.log(`highEndComputer: ${highEndComputer}`);
