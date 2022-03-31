@@ -37,8 +37,8 @@ function Component(compType, makeModel, itemPrice, itemDescription, imageUrl) {
 
 /* set up object arrays of components */
 //  chassis item full name, price, description, image path
-new Component('Chassis','Deepcool Matrix', 50, 'This is the housing that protects and organizes all the components in your computer. A higher-end chassis will provide better cooling and run quieter. Your choice is also based on aesthetics.', 'imgs/tower.jpg');
-new Component('Chassis','Dell WeezleWomper', 25, 'This is the housing that protects and organizes all the components in your computer. A higher-end chassis will provide better cooling and run quieter. Your choice is also based on aesthetics.', 'imgs/tower.jpg');
+new Component('Chassis','Deepcool Matrix', 50, 'This is the housing that protects and organizes all the components in your computer. A higher-end chassis will provide better cooling and run quieter.', 'imgs/tower.jpg');
+new Component('Chassis','Dell WeezleWomper', 25, 'This is the housing that protects and organizes all the components in your computer. A higher-end chassis will provide better cooling and run quieter.', 'imgs/tower.jpg');
 new Component('Chassis','In Win Chopin', 125, 'Advanced', 'imgs/tower1.jpg');
 new Component('Chassis','Lian Li O11', 120, 'Advanced', 'imgs/tower1.jpg');
 new Component('Chassis','Rosewill D100', 100, 'Middle', 'imgs/tower0.jpg');
@@ -55,9 +55,9 @@ new Component('Motherboard', 'ASRock B550', 140, 'Advanced', 'imgs/motherboard0.
 
 
 new Component('Processor', 'Intel Core i3', 350, 'Advanced', 'imgs/cpu3.jpg');
-new Component('Processor', 'i3 10105 VIZZ', 50, 'Also referred to as CPU, this is the brains of your computer. An entry-level chip will be sufficient for basic tasks like browsing the web and watching videos. But if you\ll be doing many basic tasks at once, opt to step up a model.', 'imgs/cpu-green.jpg');
+new Component('Processor', 'i3 10105 VIZZ', 50, 'Also referred to as CPU, this is the brains of your computer. An entry-level chip will be sufficient for basic tasks like browsing the web and watching videos. But if you\'ll be doing many basic tasks at once, opt to step up a model.', 'imgs/cpu-green.jpg');
 new Component('Processor', 'AMD Ryzen 5', 485, 'Advanced', 'imgs/cpu3.jpg');
-new Component('Processor', 'Intel i5-7500', 120, 'Also referred to as CPU, this is the brains of your computer. An entry-level chip will be sufficient for basic tasks like browsing the web and watching videos. But if you\ll be doing many basic tasks at once, opt to step up a model.', 'imgs/cpu-green.jpg');
+new Component('Processor', 'Intel i5-7500', 120, 'Also referred to as CPU, this is the brains of your computer. An entry-level chip will be sufficient for basic tasks like browsing the web and watching videos. But if you\'ll be doing many basic tasks at once, opt to step up a model.', 'imgs/cpu-green.jpg');
 new Component('Processor', 'AMD Ryzen 5 2600', 120, 'Middle', 'imgs/cpu2.jpg');
 new Component('Processor', 'Ryzen 5 5600X', 230, 'Middle', 'imgs/cpu2.jpg');
 
@@ -77,9 +77,9 @@ new Component('Storage', 'Crucial P2 1TB', 95, 'Advanced', 'imgs/storage3.jpg');
 new Component('Storage', 'SeaGate FireCoulda', 45, 'This is the long-term, permanent data storage.', 'imgs/storage1.jpg');
 new Component('Storage', 'Team MP33 1TB', 80, 'Middle', 'imgs/storage2.jpg');
 
-new Component('Videocard', 'GE-Force GT1030', 140, 'Also called GPU, this is an important feature for gamers. It translates data into images that render on your display, so the more powerful the video card, the more information displayed in a shorter time.', 'imgs/gpu.jpg');
+new Component('Videocard', 'GE-Force GT1030', 140, 'Also called GPU, this is an important feature for gamers. It translates data into images. With a more powerful video card, more information can displayed in a shorter time.', 'imgs/gpu.jpg');
 new Component('Videocard', 'Intel UHD 630', 150, 'Middle', 'imgs/gpu1.jpg');
-new Component('Videocard', 'MSI GE-Force GTX 660 TI 2GB', 125, 'Also called GPU, this is an important feature for gamers. It translates data into images that render on your display, so the more powerful the video card, the more information displayed in a shorter time.', 'imgs/gpu.jpg');
+new Component('Videocard', 'MSI GE-Force GTX 660 TI 2GB', 125, 'Also called GPU, this is an important feature for gamers. It translates data into images. With a more powerful video card, more information can displayed in a shorter time.', 'imgs/gpu.jpg');
 new Component('Videocard', 'MSI GE-Force GTX 960 4GB', 160, 'Middle', 'imgs/gpu1.jpg');
 new Component('Videocard', 'GE-Force GTX 1660 6GB', 220, 'Advanced', 'imgs/gpu2.jpg');
 
