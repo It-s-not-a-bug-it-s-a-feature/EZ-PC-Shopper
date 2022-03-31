@@ -103,8 +103,8 @@ h4 {
 .overlay-text {
   font-family: 'Londrina Solid', cursive;
   font-weight: 900;
-  color: rgb(102, 111, 109);
-  font-size: 1.6em;
+  color: slategray;
+  font-size: 1.8em;
   letter-spacing: .1em;
 }
 a:link {
