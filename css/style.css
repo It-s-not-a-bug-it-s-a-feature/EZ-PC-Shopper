@@ -438,3 +438,7 @@ td {
   font-size: 16pt;
   color: rgb(67, 139, 151);
 }
+
+#shopping-cart-total { 
+  font-size: 2em;
+}
