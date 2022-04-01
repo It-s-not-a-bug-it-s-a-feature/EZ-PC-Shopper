@@ -724,87 +724,88 @@ let motherBoardComponentEl = document.getElementById('motherboard');
 // ************************************************************************************************************
 // STORAGE COMPONENT EVENTS
 function storageMoveNext(event) {
-  let storageIndex = -1;
 
-  for (let idx = 0; idx < storageObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (storageObjects[idx].model === storageImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      storageIndex = idx;
-      break;
-    }
-  }
-  if (storageIndex < 0) {
-    console.log('BREAK: storageIndex is < 0');
-    return;
-  } else if (storageIndex === storageObjects.length - 1) {
-    console.log('storageIndex was at end, reset to 0');
-    storageIndex = 0;
+  // for (let idx = 0; idx < storageObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (storageObjects[idx].model === storageImgTag.alt) {
+  //     console.log(`Found processorObject at index ${idx}`);
+  //     storageImgIdx = idx;
+  //     break;
+  //   }
+  // }
+  // if (storageImgIdx < 0) {
+  //   console.log('BREAK: storageImgIdx is < 0');
+  //   return;
+  // } else 
+  if (storageImgIdx === storageObjects.length - 1) {
+    console.log('storageImgIdx was at end, reset to 0');
+    storageImgIdx = 0;
   } else {
-    storageIndex++;
-    console.log(`storageIndex incremented to: ${storageIndex}`);
+    storageImgIdx++;
+    console.log(`storageImgIdx incremented to: ${storageImgIdx}`);
   }
 
-  storageImgTag.src = storageObjects[storageIndex].url;
-  storageImgTag.alt = storageObjects[storageIndex].model;
+  storageImgTag.src = storageObjects[storageImgIdx].url;
+  storageImgTag.alt = storageObjects[storageImgIdx].model;
 }
 
 function storageMovePrev(event) {
-  let storageIndex = -1;
+  // let storageImgIdx = -1;
 
-  for (let idx = 0; idx < storageObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (storageObjects[idx].model === storageImgTag.alt) {
-      console.log(`Found storageObject at index ${idx}`);
-      storageIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (storageIndex < 0) {
-    console.log(`BREAK: storageIndex is < 0`);
-    return;
-  } else if (storageIndex < 1) {
+  // for (let idx = 0; idx < storageObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (storageObjects[idx].model === storageImgTag.alt) {
+  //     console.log(`Found storageObject at index ${idx}`);
+  //     storageImgIdx = idx;
+  //     break; //  we found the index in the component definition array
+  //   }
+  // }
+  // if (storageImgIdx < 0) {
+  //   console.log(`BREAK: storageImgIdx is < 0`);
+  //   return;
+  // } else
+  if (storageImgIdx < 1) {
     // index is at zero and must be reset to end
-    storageIndex = storageObjects.length - 1;
+    storageImgIdx = storageObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    storageIndex--;
-    console.log(`storageIndex decremented to: ${storageIndex}`);
+    storageImgIdx--;
+    console.log(`storageImgIdx decremented to: ${storageImgIdx}`);
   }
 
-  console.log(`setting storageImgTag src and alt at storageIndex ${storageIndex}`);
-  storageImgTag.src = storageObjects[storageIndex].url;
-  storageImgTag.alt = storageObjects[storageIndex].model;
+  console.log(`setting storageImgTag src and alt at storageImgIdx ${storageImgIdx}`);
+  storageImgTag.src = storageObjects[storageImgIdx].url;
+  storageImgTag.alt = storageObjects[storageImgIdx].model;
 }
 
 function storageImgClicked(event) {
-  let storageIndex = -1;
+  let storageImgIdx = -1;
   console.log('entered MB img clicked method');
   for (let idx = 0; idx < storageObjects.length; idx++) {
 
     if (storageObjects[idx].model === storageImgTag.alt) {
-      storageIndex = idx;
+      storageImgIdx = idx;
       break;
     }
   }
   //  get current alt attribute on the current image
-  if (storageIndex < 0) {
-    console.log(`BREAK: storageIndex is < 0`);
-    return;
-  } else {
+  // if (storageImgIdx < 0) {
+  //   console.log(`BREAK: storageImgIdx is < 0`);
+  //   return;
+  // } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    selectedComputer.storage.url = storageObjects[storageIndex].url;
-    selectedComputer.storage.alt = storageObjects[storageIndex].model;
-    selectedComputer.storage.model = storageObjects[storageIndex].model;
-    selectedComputer.storage.description = storageObjects[storageIndex].description;
-    selectedComputer.storage.price = storageObjects[storageIndex].price;
+  selectedComputer.storage.url = storageObjects[storageImgIdx].url;
+  selectedComputer.storage.alt = storageObjects[storageImgIdx].model;
+  selectedComputer.storage.model = storageObjects[storageImgIdx].model;
+  selectedComputer.storage.description = storageObjects[storageImgIdx].description;
+  selectedComputer.storage.price = storageObjects[storageImgIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
-    writeToStorage(selectedComputer.userName, selectedComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
+  // }
 }
 
 function storageClickedHandler(event){
