@@ -2,12 +2,12 @@
 'use strict';
 
 /* the following objects are already created with defaults 
-basicComputer
+selectedComputer
 midLevelComputer
 highEndComputer
 
 The code that calls this page (ie user clicks-in from index.html) should use the
-basicComputer, midLevelComputer, or highEndComputer examples in components.js and
+selectedComputer, midLevelComputer, or highEndComputer examples in components.js and
 just create an object accordinly.
 */
 
@@ -23,33 +23,43 @@ let videocardImgTag = document.getElementById('videocardImg');
 let motherboardImgTag = document.getElementById('motherboardImg');
 let tableBody = document.getElementById('tableBody');
 
+//Globals for image slideshow event handlers
+//Todo: This represents the basic computer initial settings. Change the settings here if not using initial computer.
+let memoryImageIdx = 0;
+let processorImgIdx = 0;
+let storageImgIdx = 0;
+let chassisImgIdx = 0;
+let videocardImgIdx = 0;
+let motherBoardImgIdx = 0;
+// End Globals for slideshow
+
 //  display the default computer component images in 'slideshow' format
 function renderInitialImages() {
   //  post images for memory
-  memoryImgTag.src = basicComputer.memory.url;
-  console.log(`basicComputer.memory.model is: ${basicComputer.memory.model}`);
-  memoryImgTag.alt = basicComputer.memory.model;
+  memoryImgTag.src = selectedComputer.memory.url;
+  console.log(`selectedComputer.memory.model is: ${selectedComputer.memory.model}`);
+  memoryImgTag.alt = selectedComputer.memory.model;
   console.log(`memoryImgTag.alt is: ${memoryImgTag.alt}`);
 
   //  post images for processor
-  processorImgTag.src = basicComputer.processor.url;
-  processorImgTag.alt = basicComputer.processor.model;
+  processorImgTag.src = selectedComputer.processor.url;
+  processorImgTag.alt = selectedComputer.processor.model;
 
   //  post images for storage
-  storageImgTag.src = basicComputer.storage.url;
-  storageImgTag.alt = basicComputer.storage.model;
+  storageImgTag.src = selectedComputer.storage.url;
+  storageImgTag.alt = selectedComputer.storage.model;
 
   //  post images for chassis
-  chassisImgTag.src = basicComputer.chassis.url;
-  chassisImgTag.alt = basicComputer.chassis.model;
+  chassisImgTag.src = selectedComputer.chassis.url;
+  chassisImgTag.alt = selectedComputer.chassis.model;
 
   //  post images for videocard
-  videocardImgTag.src = basicComputer.videocard.url;
-  videocardImgTag.alt = basicComputer.videocard.model;
+  videocardImgTag.src = selectedComputer.videocard.url;
+  videocardImgTag.alt = selectedComputer.videocard.model;
 
   //  post images for motherboard
-  motherboardImgTag.src = basicComputer.motherboard.url;
-  motherboardImgTag.alt = basicComputer.motherboard.model;
+  motherboardImgTag.src = selectedComputer.motherboard.url;
+  motherboardImgTag.alt = selectedComputer.motherboard.model;
 }
 
 //RowKill function
@@ -192,86 +202,54 @@ renderItemsList(selectedComputer);
 
 //  MEMORY COMPONENT EVENTS
 function moveNext(event) {
-  let memoryIndex = -1;
-
-  for (let idx = 0; idx < memoryObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (memoryObjects[idx].model === memoryImgTag.alt) {
-      console.log(`Found memoryobject at index ${idx}`);
-      memoryIndex = idx;
-      break;
-    }
-  }
-  if (memoryIndex < 0) {
-    console.log('BREAK: memoryIndex is < 0');
-    return;
-  } else if (memoryIndex === memoryObjects.length - 1) {
+  if (memoryImageIdx === memoryObjects.length - 1) {
     console.log('memoryIndex was at end, reset to 0');
-    memoryIndex = 0;
+    memoryImageIdx = 0;
   } else {
-    memoryIndex++;
-    console.log(`memoryIndex incremented to: ${memoryIndex}`);
+    memoryImageIdx++;
+    console.log(`memoryIndex incremented to: ${memoryImageIdx}`);
   }
 
-  memoryImgTag.src = memoryObjects[memoryIndex].url;
-  memoryImgTag.alt = memoryObjects[memoryIndex].model;
+  memoryImgTag.src = memoryObjects[memoryImageIdx].url;
+  memoryImgTag.alt = memoryObjects[memoryImageIdx].model;
 }
 
 function movePrev(event) {
-  let memoryIndex = -1;
-
-  for (let idx = 0; idx < memoryObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (memoryObjects[idx].model === memoryImgTag.alt) {
-      console.log(`Found memoryobject at index ${idx}`);
-      memoryIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (memoryIndex < 0) {
-    console.log(`BREAK: memoryIndex is < 0`);
-    return;
-  } else if (memoryIndex < 1) {
+  if (memoryImageIdx < 1) {
     // index is at zero and must be reset to end
-    memoryIndex = memoryObjects.length - 1;
+    memoryImageIdx = memoryObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    memoryIndex--;
-    console.log(`memoryIndex decremented to: ${memoryIndex}`);
+    memoryImageIdx--;
+    console.log(`memoryImageIdx decremented to: ${memoryImageIdx}`);
   }
 
-  console.log(`setting memoryImgTag src and alt at memoryIndex ${memoryIndex}`);
-  memoryImgTag.src = memoryObjects[memoryIndex].url;
-  memoryImgTag.alt = memoryObjects[memoryIndex].model;
+  console.log(`setting memoryImgTag src and alt at memoryImageIdx ${memoryImageIdx}`);
+  memoryImgTag.src = memoryObjects[memoryImageIdx].url;
+  memoryImgTag.alt = memoryObjects[memoryImageIdx].model;
 }
 
 function imgClicked(event) {
-  let memoryIndex = -1;
 
   for (let idx = 0; idx < memoryObjects.length; idx++) {
 
     if (memoryObjects[idx].model === memoryImgTag.alt) {
-      memoryIndex = idx;
+      memoryImageIdx = idx;
       break;
     }
   }
-  //  get current alt attribute on the current image
-  if (memoryIndex < 0) {
-    console.log(`BREAK: memoryIndex is < 0`);
-    return;
-  } else {
-    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.memory.url = memoryObjects[memoryIndex].url;
-    basicComputer.memory.alt = memoryObjects[memoryIndex].model;
-    basicComputer.memory.model = memoryObjects[memoryIndex].model;
-    basicComputer.memory.description = memoryObjects[memoryIndex].description;
+  //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+  selectedComputer.memory.url = memoryObjects[memoryImageIdx].url;
+  selectedComputer.memory.alt = memoryObjects[memoryImageIdx].model;
+  selectedComputer.memory.model = memoryObjects[memoryImageIdx].model;
+  selectedComputer.memory.description = memoryObjects[memoryImageIdx].description;
+  selectedComputer.memory.price = memoryObjects[memoryImageIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.componentType}`);
-    writeToStorage(basicComputer.userName, basicComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.componentType}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
 }
 
 function memoryClickedHandler(event){
@@ -296,85 +274,59 @@ let ramComponentEl = document.getElementById('memory');
 // ************************************************************************************************************
 // CPU COMPONENT EVENTS
 function cpuMoveNext(event) {
-  let cpuIndex = -1;
-
-  for (let idx = 0; idx < processorObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (processorObjects[idx].model === processorImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      cpuIndex = idx;
-      break;
-    }
-  }
-  if (cpuIndex < 0) {
-    console.log('BREAK: cpuIndex is < 0');
-    return;
-  } else if (cpuIndex === processorObjects.length - 1) {
-    console.log('cpuIndex was at end, reset to 0');
-    cpuIndex = 0;
+  if (processorImgIdx === processorObjects.length - 1) {
+    console.log('processorImgIdx was at end, reset to 0');
+    processorImgIdx = 0;
   } else {
-    cpuIndex++;
-    console.log(`cpuIndex incremented to: ${cpuIndex}`);
+    processorImgIdx++;
+    console.log(`processorImgIdx incremented to: ${processorImgIdx}`);
   }
 
-  processorImgTag.src = processorObjects[cpuIndex].url;
-  processorImgTag.alt = processorObjects[cpuIndex].model;
+  processorImgTag.src = processorObjects[processorImgIdx].url;
+  processorImgTag.alt = processorObjects[processorImgIdx].model;
 }
 
 function cpuMovePrev(event) {
-  let cpuIndex = -1;
-
-  for (let idx = 0; idx < processorObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (processorObjects[idx].model === processorImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      cpuIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (cpuIndex < 0) {
-    console.log(`BREAK: cpuIndex is < 0`);
-    return;
-  } else if (cpuIndex < 1) {
+  if (processorImgIdx < 1) {
     // index is at zero and must be reset to end
-    cpuIndex = processorObjects.length - 1;
+    processorImgIdx = processorObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    cpuIndex--;
-    console.log(`cpuIndex decremented to: ${cpuIndex}`);
+    processorImgIdx--;
+    console.log(`processorImgIdx decremented to: ${processorImgIdx}`);
   }
 
-  console.log(`setting processorImgTag src and alt at cpuIndex ${cpuIndex}`);
-  processorImgTag.src = processorObjects[cpuIndex].url;
-  processorImgTag.alt = processorObjects[cpuIndex].model;
+  console.log(`setting processorImgTag src and alt at processorImgIdx ${processorImgIdx}`);
+  processorImgTag.src = processorObjects[processorImgIdx].url;
+  processorImgTag.alt = processorObjects[processorImgIdx].model;
 }
 
 function cpuImgClicked(event) {
-  let cpuIndex = -1;
 
   for (let idx = 0; idx < processorObjects.length; idx++) {
 
     if (processorObjects[idx].model === processorImgTag.alt) {
-      cpuIndex = idx;
+      processorImgIdx = idx;
       break;
     }
   }
   //  get current alt attribute on the current image
-  if (cpuIndex < 0) {
-    console.log(`BREAK: cpuIndex is < 0`);
+  if (processorImgIdx < 0) {
+    console.log(`BREAK: processorImgIdx is < 0`);
     return;
   } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.processor.url = processorObjects[cpuIndex].url;
-    basicComputer.processor.alt = processorObjects[cpuIndex].model;
-    basicComputer.processor.model = processorObjects[cpuIndex].model;
-    basicComputer.processor.description = processorObjects[cpuIndex].description;
+    selectedComputer.processor.url = processorObjects[processorImgIdx].url;
+    selectedComputer.processor.alt = processorObjects[processorImgIdx].model;
+    selectedComputer.processor.model = processorObjects[processorImgIdx].model;
+    selectedComputer.processor.description = processorObjects[processorImgIdx].description;
+    selectedComputer.processor.price = processorObjects[processorImgIdx].price;
 
     renderItemsList(selectedComputer);
 
     //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
+    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+    writeToStorage(selectedComputer.userName, selectedComputer);
   }
 }
 
@@ -400,86 +352,54 @@ let cpuComponentEl = document.getElementById('processor');
 // ************************************************************************************************************
 // CHASSIS COMPONENT EVENTS
 function chassisMoveNext(event) {
-  let chassisIndex = -1;
-
-  for (let idx = 0; idx < chassisObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (chassisObjects[idx].model === chassisImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      chassisIndex = idx;
-      break;
-    }
-  }
-  if (chassisIndex < 0) {
-    console.log('BREAK: chassisIndex is < 0');
-    return;
-  } else if (chassisIndex === chassisObjects.length - 1) {
-    console.log('chassisIndex was at end, reset to 0');
-    chassisIndex = 0;
+  if (chassisImgIdx === chassisObjects.length - 1) {
+    console.log('chassisImgIdx was at end, reset to 0');
+    chassisImgIdx = 0;
   } else {
-    chassisIndex++;
-    console.log(`chassisIndex incremented to: ${chassisIndex}`);
+    chassisImgIdx++;
+    console.log(`chassisImgIdx incremented to: ${chassisImgIdx}`);
   }
 
-  chassisImgTag.src = chassisObjects[chassisIndex].url;
-  chassisImgTag.alt = chassisObjects[chassisIndex].model;
+  chassisImgTag.src = chassisObjects[chassisImgIdx].url;
+  chassisImgTag.alt = chassisObjects[chassisImgIdx].model;
 }
 
 function chassisMovePrev(event) {
-  let chassisIndex = -1;
-
-  for (let idx = 0; idx < chassisObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (chassisObjects[idx].model === chassisImgTag.alt) {
-      console.log(`Found chassisObject at index ${idx}`);
-      chassisIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (chassisIndex < 0) {
-    console.log(`BREAK: chassisIndex is < 0`);
-    return;
-  } else if (chassisIndex < 1) {
+  if (chassisImgIdx < 1) {
     // index is at zero and must be reset to end
-    chassisIndex = chassisObjects.length - 1;
+    chassisImgIdx = chassisObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    chassisIndex--;
-    console.log(`chassisIndex decremented to: ${chassisIndex}`);
+    chassisImgIdx--;
+    console.log(`chassisImgIdx decremented to: ${chassisImgIdx}`);
   }
 
-  console.log(`setting chassisImgTag src and alt at chassisIndex ${chassisIndex}`);
-  chassisImgTag.src = chassisObjects[chassisIndex].url;
-  chassisImgTag.alt = chassisObjects[chassisIndex].model;
+  console.log(`setting chassisImgTag src and alt at chassisImgIdx ${chassisImgIdx}`);
+  chassisImgTag.src = chassisObjects[chassisImgIdx].url;
+  chassisImgTag.alt = chassisObjects[chassisImgIdx].model;
 }
 
 function chassisImgClicked(event) {
-  let chassisIndex = -1;
 
   for (let idx = 0; idx < chassisObjects.length; idx++) {
 
     if (chassisObjects[idx].model === chassisImgTag.alt) {
-      chassisIndex = idx;
+      chassisImgIdx = idx;
       break;
     }
   }
-  //  get current alt attribute on the current image
-  if (chassisIndex < 0) {
-    console.log(`BREAK: chassisIndex is < 0`);
-    return;
-  } else {
-    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.chassis.url = chassisObjects[chassisIndex].url;
-    basicComputer.chassis.alt = chassisObjects[chassisIndex].model;
-    basicComputer.chassis.model = chassisObjects[chassisIndex].model;
-    basicComputer.chassis.description = chassisObjects[chassisIndex].description;
+  //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+  selectedComputer.chassis.url = chassisObjects[chassisImgIdx].url;
+  selectedComputer.chassis.alt = chassisObjects[chassisImgIdx].model;
+  selectedComputer.chassis.model = chassisObjects[chassisImgIdx].model;
+  selectedComputer.chassis.description = chassisObjects[chassisImgIdx].description;
+  selectedComputer.chassis.price = chassisObjects[chassisImgIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
 }
 
 function chassisClickedHandler(event){
@@ -504,86 +424,55 @@ let chassisComponentEl = document.getElementById('chassis');
 // ************************************************************************************************************
 // VIDEOCARD COMPONENT EVENTS
 function videocardMoveNext(event) {
-  let videocardIndex = -1;
-
-  for (let idx = 0; idx < videocardObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (videocardObjects[idx].model === videocardImgTag.alt) {
-      console.log(`Found videocardObject at index ${idx}`);
-      videocardIndex = idx;
-      break;
-    }
-  }
-  if (videocardIndex < 0) {
-    console.log('BREAK: videocardIndex is < 0');
-    return;
-  } else if (videocardIndex === videocardObjects.length - 1) {
-    console.log('videocardIndex was at end, reset to 0');
-    videocardIndex = 0;
+  if (videocardImgIdx === videocardObjects.length - 1) {
+    console.log('videocardImgIdx was at end, reset to 0');
+    videocardImgIdx = 0;
   } else {
-    videocardIndex++;
-    console.log(`videocardIndex incremented to: ${videocardIndex}`);
+    videocardImgIdx++;
+    console.log(`videocardImgIdx incremented to: ${videocardImgIdx}`);
   }
 
-  videocardImgTag.src = videocardObjects[videocardIndex].url;
-  videocardImgTag.alt = videocardObjects[videocardIndex].model;
+  videocardImgTag.src = videocardObjects[videocardImgIdx].url;
+  videocardImgTag.alt = videocardObjects[videocardImgIdx].model;
 }
 
 function videocardMovePrev(event) {
-  let videocardIndex = -1;
-
-  for (let idx = 0; idx < videocardObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (videocardObjects[idx].model === videocardImgTag.alt) {
-      console.log(`Found videocardObject at index ${idx}`);
-      videocardIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (videocardIndex < 0) {
-    console.log(`BREAK: videocardIndex is < 0`);
-    return;
-  } else if (videocardIndex < 1) {
+  if (videocardImgIdx < 1) {
     // index is at zero and must be reset to end
-    videocardIndex = videocardObjects.length - 1;
+    videocardImgIdx = videocardObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    videocardIndex--;
-    console.log(`videocardIndex decremented to: ${videocardIndex}`);
+    videocardImgIdx--;
+    console.log(`videocardImgIdx decremented to: ${videocardImgIdx}`);
   }
 
-  console.log(`setting videocardImgTag src and alt at videocardIndex ${videocardIndex}`);
-  videocardImgTag.src = videocardObjects[videocardIndex].url;
-  videocardImgTag.alt = videocardObjects[videocardIndex].model;
+  console.log(`setting videocardImgTag src and alt at videocardImgIdx ${videocardImgIdx}`);
+  videocardImgTag.src = videocardObjects[videocardImgIdx].url;
+  videocardImgTag.alt = videocardObjects[videocardImgIdx].model;
 }
 
 function videocardImgClicked(event) {
-  let videocardIndex = -1;
+  let videocardImgIdx = -1;
 
   for (let idx = 0; idx < videocardObjects.length; idx++) {
 
     if (videocardObjects[idx].model === videocardImgTag.alt) {
-      videocardIndex = idx;
+      videocardImgIdx = idx;
       break;
     }
   }
-  //  get current alt attribute on the current image
-  if (videocardIndex < 0) {
-    console.log(`BREAK: videocardIndex is < 0`);
-    return;
-  } else {
-    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.videocard.url = videocardObjects[videocardIndex].url;
-    basicComputer.videocard.alt = videocardObjects[videocardIndex].model;
-    basicComputer.videocard.model = videocardObjects[videocardIndex].model;
-    basicComputer.videocard.description = videocardObjects[videocardIndex].description;
+  //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+  selectedComputer.videocard.url = videocardObjects[videocardImgIdx].url;
+  selectedComputer.videocard.alt = videocardObjects[videocardImgIdx].model;
+  selectedComputer.videocard.model = videocardObjects[videocardImgIdx].model;
+  selectedComputer.videocard.description = videocardObjects[videocardImgIdx].description;
+  selectedComputer.videocard.price = videocardObjects[videocardImgIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
 }
 
 function videocardClickedHandler(event){
@@ -607,87 +496,57 @@ let videocardComponentEl = document.getElementById('videocard');
 // END VIDEOCARD COMPONENT EVENTS
 // ************************************************************************************************************
 // MOTHERBOARD COMPONENT EVENTS
-function motherboardMoveNext(event) {
-  let motherboardIndex = -1;
-
-  for (let idx = 0; idx < motherboardObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (motherboardObjects[idx].model === motherboardImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      motherboardIndex = idx;
-      break;
-    }
-  }
-  if (motherboardIndex < 0) {
-    console.log('BREAK: motherboardIndex is < 0');
-    return;
-  } else if (motherboardIndex === motherboardObjects.length - 1) {
-    console.log('motherboardIndex was at end, reset to 0');
-    motherboardIndex = 0;
+function motherboardMoveNext(event) { 
+  if (motherBoardImgIdx === motherboardObjects.length - 1) {
+    console.log('motherBoardImgIdx was at end, reset to 0');
+    motherBoardImgIdx = 0;
   } else {
-    motherboardIndex++;
-    console.log(`motherboardIndex incremented to: ${motherboardIndex}`);
+    motherBoardImgIdx++;
+    console.log(`motherBoardImgIdx incremented to: ${motherBoardImgIdx}`);
   }
 
-  motherboardImgTag.src = motherboardObjects[motherboardIndex].url;
-  motherboardImgTag.alt = motherboardObjects[motherboardIndex].model;
+  motherboardImgTag.src = motherboardObjects[motherBoardImgIdx].url;
+  motherboardImgTag.alt = motherboardObjects[motherBoardImgIdx].model;
 }
 
 function motherboardMovePrev(event) {
-  let motherboardIndex = -1;
-
-  for (let idx = 0; idx < motherboardObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (motherboardObjects[idx].model === motherboardImgTag.alt) {
-      console.log(`Found motherboardObject at index ${idx}`);
-      motherboardIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (motherboardIndex < 0) {
-    console.log(`BREAK: motherboardIndex is < 0`);
-    return;
-  } else if (motherboardIndex < 1) {
+  if (motherBoardImgIdx < 1) {
     // index is at zero and must be reset to end
-    motherboardIndex = motherboardObjects.length - 1;
+    motherBoardImgIdx = motherboardObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    motherboardIndex--;
-    console.log(`motherboardIndex decremented to: ${motherboardIndex}`);
+    motherBoardImgIdx--;
+    console.log(`motherBoardImgIdx decremented to: ${motherBoardImgIdx}`);
   }
 
-  console.log(`setting motherboardImgTag src and alt at motherboardIndex ${motherboardIndex}`);
-  motherboardImgTag.src = motherboardObjects[motherboardIndex].url;
-  motherboardImgTag.alt = motherboardObjects[motherboardIndex].model;
+  console.log(`setting motherboardImgTag src and alt at motherBoardImgIdx ${motherBoardImgIdx}`);
+  motherboardImgTag.src = motherboardObjects[motherBoardImgIdx].url;
+  motherboardImgTag.alt = motherboardObjects[motherBoardImgIdx].model;
 }
 
 function motherboardImgClicked(event) {
-  let motherboardIndex = -1;
+  let motherBoardImgIdx = -1;
   console.log('entered MB img clicked method');
   for (let idx = 0; idx < motherboardObjects.length; idx++) {
 
     if (motherboardObjects[idx].model === motherboardImgTag.alt) {
-      motherboardIndex = idx;
+      motherBoardImgIdx = idx;
       break;
     }
   }
-  //  get current alt attribute on the current image
-  if (motherboardIndex < 0) {
-    console.log(`BREAK: motherboardIndex is < 0`);
-    return;
-  } else {
-    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.motherboard.url = motherboardObjects[motherboardIndex].url;
-    basicComputer.motherboard.alt = motherboardObjects[motherboardIndex].model;
-    basicComputer.motherboard.model = motherboardObjects[motherboardIndex].model;
-    basicComputer.motherboard.description = motherboardObjects[motherboardIndex].description;
 
-    renderItemsList(selectedComputer);
+  //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+  selectedComputer.motherboard.url = motherboardObjects[motherBoardImgIdx].url;
+  selectedComputer.motherboard.alt = motherboardObjects[motherBoardImgIdx].model;
+  selectedComputer.motherboard.model = motherboardObjects[motherBoardImgIdx].model;
+  selectedComputer.motherboard.description = motherboardObjects[motherBoardImgIdx].description;
+  selectedComputer.motherboard.price = motherboardObjects[motherBoardImgIdx].price;
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
-  }
+  renderItemsList(selectedComputer);
+
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
 }
 
 function motherBoardClickedHandler(event){
@@ -713,86 +572,55 @@ let motherBoardComponentEl = document.getElementById('motherboard');
 // ************************************************************************************************************
 // STORAGE COMPONENT EVENTS
 function storageMoveNext(event) {
-  let storageIndex = -1;
-
-  for (let idx = 0; idx < storageObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (storageObjects[idx].model === storageImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      storageIndex = idx;
-      break;
-    }
-  }
-  if (storageIndex < 0) {
-    console.log('BREAK: storageIndex is < 0');
-    return;
-  } else if (storageIndex === storageObjects.length - 1) {
-    console.log('storageIndex was at end, reset to 0');
-    storageIndex = 0;
+  if (storageImgIdx === storageObjects.length - 1) {
+    console.log('storageImgIdx was at end, reset to 0');
+    storageImgIdx = 0;
   } else {
-    storageIndex++;
-    console.log(`storageIndex incremented to: ${storageIndex}`);
+    storageImgIdx++;
+    console.log(`storageImgIdx incremented to: ${storageImgIdx}`);
   }
 
-  storageImgTag.src = storageObjects[storageIndex].url;
-  storageImgTag.alt = storageObjects[storageIndex].model;
+  storageImgTag.src = storageObjects[storageImgIdx].url;
+  storageImgTag.alt = storageObjects[storageImgIdx].model;
 }
 
 function storageMovePrev(event) {
-  let storageIndex = -1;
-
-  for (let idx = 0; idx < storageObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (storageObjects[idx].model === storageImgTag.alt) {
-      console.log(`Found storageObject at index ${idx}`);
-      storageIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (storageIndex < 0) {
-    console.log(`BREAK: storageIndex is < 0`);
-    return;
-  } else if (storageIndex < 1) {
+  if (storageImgIdx < 1) {
     // index is at zero and must be reset to end
-    storageIndex = storageObjects.length - 1;
+    storageImgIdx = storageObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    storageIndex--;
-    console.log(`storageIndex decremented to: ${storageIndex}`);
+    storageImgIdx--;
+    console.log(`storageImgIdx decremented to: ${storageImgIdx}`);
   }
 
-  console.log(`setting storageImgTag src and alt at storageIndex ${storageIndex}`);
-  storageImgTag.src = storageObjects[storageIndex].url;
-  storageImgTag.alt = storageObjects[storageIndex].model;
+  console.log(`setting storageImgTag src and alt at storageImgIdx ${storageImgIdx}`);
+  storageImgTag.src = storageObjects[storageImgIdx].url;
+  storageImgTag.alt = storageObjects[storageImgIdx].model;
 }
 
 function storageImgClicked(event) {
-  let storageIndex = -1;
+  let storageImgIdx = -1;
   console.log('entered MB img clicked method');
   for (let idx = 0; idx < storageObjects.length; idx++) {
 
     if (storageObjects[idx].model === storageImgTag.alt) {
-      storageIndex = idx;
+      storageImgIdx = idx;
       break;
     }
   }
-  //  get current alt attribute on the current image
-  if (storageIndex < 0) {
-    console.log(`BREAK: storageIndex is < 0`);
-    return;
-  } else {
-    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    basicComputer.storage.url = storageObjects[storageIndex].url;
-    basicComputer.storage.alt = storageObjects[storageIndex].model;
-    basicComputer.storage.model = storageObjects[storageIndex].model;
-    basicComputer.storage.description = storageObjects[storageIndex].description;
+  selectedComputer.storage.url = storageObjects[storageImgIdx].url;
+  selectedComputer.storage.alt = storageObjects[storageImgIdx].model;
+  selectedComputer.storage.model = storageObjects[storageImgIdx].model;
+  selectedComputer.storage.description = storageObjects[storageImgIdx].description;
+  selectedComputer.storage.price = storageObjects[storageImgIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${basicComputer.userName}`);
-    writeToStorage(basicComputer.userName, basicComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
+  // }
 }
 
 function storageClickedHandler(event){
