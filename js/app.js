@@ -513,87 +513,86 @@ let chassisComponentEl = document.getElementById('chassis');
 // ************************************************************************************************************
 // VIDEOCARD COMPONENT EVENTS
 function videocardMoveNext(event) {
-  let videocardIndex = -1;
 
-  for (let idx = 0; idx < videocardObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (videocardObjects[idx].model === videocardImgTag.alt) {
-      console.log(`Found videocardObject at index ${idx}`);
-      videocardIndex = idx;
-      break;
-    }
-  }
-  if (videocardIndex < 0) {
-    console.log('BREAK: videocardIndex is < 0');
-    return;
-  } else if (videocardIndex === videocardObjects.length - 1) {
-    console.log('videocardIndex was at end, reset to 0');
-    videocardIndex = 0;
+  // for (let idx = 0; idx < videocardObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (videocardObjects[idx].model === videocardImgTag.alt) {
+  //     console.log(`Found videocardObject at index ${idx}`);
+  //     videocardImgIdx = idx;
+  //     break;
+  //   }
+  // }
+  // if (videocardImgIdx < 0) {
+  //   console.log('BREAK: videocardImgIdx is < 0');
+  //   return;
+  // } else 
+  if (videocardImgIdx === videocardObjects.length - 1) {
+    console.log('videocardImgIdx was at end, reset to 0');
+    videocardImgIdx = 0;
   } else {
-    videocardIndex++;
-    console.log(`videocardIndex incremented to: ${videocardIndex}`);
+    videocardImgIdx++;
+    console.log(`videocardImgIdx incremented to: ${videocardImgIdx}`);
   }
 
-  videocardImgTag.src = videocardObjects[videocardIndex].url;
-  videocardImgTag.alt = videocardObjects[videocardIndex].model;
+  videocardImgTag.src = videocardObjects[videocardImgIdx].url;
+  videocardImgTag.alt = videocardObjects[videocardImgIdx].model;
 }
 
 function videocardMovePrev(event) {
-  let videocardIndex = -1;
-
-  for (let idx = 0; idx < videocardObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (videocardObjects[idx].model === videocardImgTag.alt) {
-      console.log(`Found videocardObject at index ${idx}`);
-      videocardIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (videocardIndex < 0) {
-    console.log(`BREAK: videocardIndex is < 0`);
-    return;
-  } else if (videocardIndex < 1) {
+  // for (let idx = 0; idx < videocardObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (videocardObjects[idx].model === videocardImgTag.alt) {
+  //     console.log(`Found videocardObject at index ${idx}`);
+  //     videocardImgIdx = idx;
+  //     break; //  we found the index in the component definition array
+  //   }
+  // }
+  // if (videocardImgIdx < 0) {
+  //   console.log(`BREAK: videocardImgIdx is < 0`);
+  //   return;
+  // } else
+  if (videocardImgIdx < 1) {
     // index is at zero and must be reset to end
-    videocardIndex = videocardObjects.length - 1;
+    videocardImgIdx = videocardObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    videocardIndex--;
-    console.log(`videocardIndex decremented to: ${videocardIndex}`);
+    videocardImgIdx--;
+    console.log(`videocardImgIdx decremented to: ${videocardImgIdx}`);
   }
 
-  console.log(`setting videocardImgTag src and alt at videocardIndex ${videocardIndex}`);
-  videocardImgTag.src = videocardObjects[videocardIndex].url;
-  videocardImgTag.alt = videocardObjects[videocardIndex].model;
+  console.log(`setting videocardImgTag src and alt at videocardImgIdx ${videocardImgIdx}`);
+  videocardImgTag.src = videocardObjects[videocardImgIdx].url;
+  videocardImgTag.alt = videocardObjects[videocardImgIdx].model;
 }
 
 function videocardImgClicked(event) {
-  let videocardIndex = -1;
+  let videocardImgIdx = -1;
 
   for (let idx = 0; idx < videocardObjects.length; idx++) {
 
     if (videocardObjects[idx].model === videocardImgTag.alt) {
-      videocardIndex = idx;
+      videocardImgIdx = idx;
       break;
     }
   }
-  //  get current alt attribute on the current image
-  if (videocardIndex < 0) {
-    console.log(`BREAK: videocardIndex is < 0`);
-    return;
-  } else {
+  // //  get current alt attribute on the current image
+  // if (videocardImgIdx < 0) {
+  //   console.log(`BREAK: videocardImgIdx is < 0`);
+  //   return;
+  // } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    selectedComputer.videocard.url = videocardObjects[videocardIndex].url;
-    selectedComputer.videocard.alt = videocardObjects[videocardIndex].model;
-    selectedComputer.videocard.model = videocardObjects[videocardIndex].model;
-    selectedComputer.videocard.description = videocardObjects[videocardIndex].description;
-    selectedComputer.videocard.price = videocardObjects[videocardIndex].price;
+  selectedComputer.videocard.url = videocardObjects[videocardImgIdx].url;
+  selectedComputer.videocard.alt = videocardObjects[videocardImgIdx].model;
+  selectedComputer.videocard.model = videocardObjects[videocardImgIdx].model;
+  selectedComputer.videocard.description = videocardObjects[videocardImgIdx].description;
+  selectedComputer.videocard.price = videocardObjects[videocardImgIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
-    writeToStorage(selectedComputer.userName, selectedComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
+  // }
 }
 
 function videocardClickedHandler(event){
