@@ -409,87 +409,86 @@ let cpuComponentEl = document.getElementById('processor');
 // ************************************************************************************************************
 // CHASSIS COMPONENT EVENTS
 function chassisMoveNext(event) {
-  let chassisIndex = -1;
 
-  for (let idx = 0; idx < chassisObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (chassisObjects[idx].model === chassisImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      chassisIndex = idx;
-      break;
-    }
-  }
-  if (chassisIndex < 0) {
-    console.log('BREAK: chassisIndex is < 0');
-    return;
-  } else if (chassisIndex === chassisObjects.length - 1) {
-    console.log('chassisIndex was at end, reset to 0');
-    chassisIndex = 0;
+  // for (let idx = 0; idx < chassisObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (chassisObjects[idx].model === chassisImgTag.alt) {
+  //     console.log(`Found processorObject at index ${idx}`);
+  //     chassisImgIdx = idx;
+  //     break;
+  //   }
+  // }
+  // if (chassisImgIdx < 0) {
+  //   console.log('BREAK: chassisImgIdx is < 0');
+  //   return;
+  // } else 
+  if (chassisImgIdx === chassisObjects.length - 1) {
+    console.log('chassisImgIdx was at end, reset to 0');
+    chassisImgIdx = 0;
   } else {
-    chassisIndex++;
-    console.log(`chassisIndex incremented to: ${chassisIndex}`);
+    chassisImgIdx++;
+    console.log(`chassisImgIdx incremented to: ${chassisImgIdx}`);
   }
 
-  chassisImgTag.src = chassisObjects[chassisIndex].url;
-  chassisImgTag.alt = chassisObjects[chassisIndex].model;
+  chassisImgTag.src = chassisObjects[chassisImgIdx].url;
+  chassisImgTag.alt = chassisObjects[chassisImgIdx].model;
 }
 
 function chassisMovePrev(event) {
-  let chassisIndex = -1;
 
-  for (let idx = 0; idx < chassisObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (chassisObjects[idx].model === chassisImgTag.alt) {
-      console.log(`Found chassisObject at index ${idx}`);
-      chassisIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (chassisIndex < 0) {
-    console.log(`BREAK: chassisIndex is < 0`);
-    return;
-  } else if (chassisIndex < 1) {
+  // for (let idx = 0; idx < chassisObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (chassisObjects[idx].model === chassisImgTag.alt) {
+  //     console.log(`Found chassisObject at index ${idx}`);
+  //     chassisImgIdx = idx;
+  //     break; //  we found the index in the component definition array
+  //   }
+  // }
+  // if (chassisImgIdx < 0) {
+  //   console.log(`BREAK: chassisImgIdx is < 0`);
+  //   return;
+  // } else
+  if (chassisImgIdx < 1) {
     // index is at zero and must be reset to end
-    chassisIndex = chassisObjects.length - 1;
+    chassisImgIdx = chassisObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    chassisIndex--;
-    console.log(`chassisIndex decremented to: ${chassisIndex}`);
+    chassisImgIdx--;
+    console.log(`chassisImgIdx decremented to: ${chassisImgIdx}`);
   }
 
-  console.log(`setting chassisImgTag src and alt at chassisIndex ${chassisIndex}`);
-  chassisImgTag.src = chassisObjects[chassisIndex].url;
-  chassisImgTag.alt = chassisObjects[chassisIndex].model;
+  console.log(`setting chassisImgTag src and alt at chassisImgIdx ${chassisImgIdx}`);
+  chassisImgTag.src = chassisObjects[chassisImgIdx].url;
+  chassisImgTag.alt = chassisObjects[chassisImgIdx].model;
 }
 
 function chassisImgClicked(event) {
-  let chassisIndex = -1;
 
   for (let idx = 0; idx < chassisObjects.length; idx++) {
 
     if (chassisObjects[idx].model === chassisImgTag.alt) {
-      chassisIndex = idx;
+      chassisImgIdx = idx;
       break;
     }
   }
   //  get current alt attribute on the current image
-  if (chassisIndex < 0) {
-    console.log(`BREAK: chassisIndex is < 0`);
-    return;
-  } else {
+  // if (chassisImgIdx < 0) {
+  //   console.log(`BREAK: chassisImgIdx is < 0`);
+  //   return;
+  // } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    selectedComputer.chassis.url = chassisObjects[chassisIndex].url;
-    selectedComputer.chassis.alt = chassisObjects[chassisIndex].model;
-    selectedComputer.chassis.model = chassisObjects[chassisIndex].model;
-    selectedComputer.chassis.description = chassisObjects[chassisIndex].description;
-    selectedComputer.chassis.price = chassisObjects[chassisIndex].price;
+  selectedComputer.chassis.url = chassisObjects[chassisImgIdx].url;
+  selectedComputer.chassis.alt = chassisObjects[chassisImgIdx].model;
+  selectedComputer.chassis.model = chassisObjects[chassisImgIdx].model;
+  selectedComputer.chassis.description = chassisObjects[chassisImgIdx].description;
+  selectedComputer.chassis.price = chassisObjects[chassisImgIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
-    writeToStorage(selectedComputer.userName, selectedComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
+  // }
 }
 
 function chassisClickedHandler(event){
