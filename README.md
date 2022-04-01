@@ -63,3 +63,5 @@ Used [Font Awesome](https://fontawesome.com/) initially, but ultimately removed 
 Fonts sourced from [GoogleFonts.](https://fonts.google.com/)
 
 All technical knowledge of computer components came from team members - Kyle, Scott, and Jon.
+
+Big thanks to our instructor, Audrey Patterson.
