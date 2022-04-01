@@ -617,87 +617,88 @@ let videocardComponentEl = document.getElementById('videocard');
 // ************************************************************************************************************
 // MOTHERBOARD COMPONENT EVENTS
 function motherboardMoveNext(event) {
-  let motherboardIndex = -1;
 
-  for (let idx = 0; idx < motherboardObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (motherboardObjects[idx].model === motherboardImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      motherboardIndex = idx;
-      break;
-    }
-  }
-  if (motherboardIndex < 0) {
-    console.log('BREAK: motherboardIndex is < 0');
-    return;
-  } else if (motherboardIndex === motherboardObjects.length - 1) {
-    console.log('motherboardIndex was at end, reset to 0');
-    motherboardIndex = 0;
+  // for (let idx = 0; idx < motherboardObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (motherboardObjects[idx].model === motherboardImgTag.alt) {
+  //     console.log(`Found processorObject at index ${idx}`);
+  //     motherBoardImgIdx = idx;
+  //     break;
+  //   }
+  // }
+  // if (motherBoardImgIdx < 0) {
+  //   console.log('BREAK: motherBoardImgIdx is < 0');
+  //   return;
+  // } else 
+  if (motherBoardImgIdx === motherboardObjects.length - 1) {
+    console.log('motherBoardImgIdx was at end, reset to 0');
+    motherBoardImgIdx = 0;
   } else {
-    motherboardIndex++;
-    console.log(`motherboardIndex incremented to: ${motherboardIndex}`);
+    motherBoardImgIdx++;
+    console.log(`motherBoardImgIdx incremented to: ${motherBoardImgIdx}`);
   }
 
-  motherboardImgTag.src = motherboardObjects[motherboardIndex].url;
-  motherboardImgTag.alt = motherboardObjects[motherboardIndex].model;
+  motherboardImgTag.src = motherboardObjects[motherBoardImgIdx].url;
+  motherboardImgTag.alt = motherboardObjects[motherBoardImgIdx].model;
 }
 
 function motherboardMovePrev(event) {
-  let motherboardIndex = -1;
+  // let motherBoardImgIdx = -1;
 
-  for (let idx = 0; idx < motherboardObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (motherboardObjects[idx].model === motherboardImgTag.alt) {
-      console.log(`Found motherboardObject at index ${idx}`);
-      motherboardIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (motherboardIndex < 0) {
-    console.log(`BREAK: motherboardIndex is < 0`);
-    return;
-  } else if (motherboardIndex < 1) {
+  // for (let idx = 0; idx < motherboardObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (motherboardObjects[idx].model === motherboardImgTag.alt) {
+  //     console.log(`Found motherboardObject at index ${idx}`);
+  //     motherBoardImgIdx = idx;
+  //     break; //  we found the index in the component definition array
+  //   }
+  // }
+  // if (motherBoardImgIdx < 0) {
+  //   console.log(`BREAK: motherBoardImgIdx is < 0`);
+  //   return;
+  // } else
+  if (motherBoardImgIdx < 1) {
     // index is at zero and must be reset to end
-    motherboardIndex = motherboardObjects.length - 1;
+    motherBoardImgIdx = motherboardObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    motherboardIndex--;
-    console.log(`motherboardIndex decremented to: ${motherboardIndex}`);
+    motherBoardImgIdx--;
+    console.log(`motherBoardImgIdx decremented to: ${motherBoardImgIdx}`);
   }
 
-  console.log(`setting motherboardImgTag src and alt at motherboardIndex ${motherboardIndex}`);
-  motherboardImgTag.src = motherboardObjects[motherboardIndex].url;
-  motherboardImgTag.alt = motherboardObjects[motherboardIndex].model;
+  console.log(`setting motherboardImgTag src and alt at motherBoardImgIdx ${motherBoardImgIdx}`);
+  motherboardImgTag.src = motherboardObjects[motherBoardImgIdx].url;
+  motherboardImgTag.alt = motherboardObjects[motherBoardImgIdx].model;
 }
 
 function motherboardImgClicked(event) {
-  let motherboardIndex = -1;
+  let motherBoardImgIdx = -1;
   console.log('entered MB img clicked method');
   for (let idx = 0; idx < motherboardObjects.length; idx++) {
 
     if (motherboardObjects[idx].model === motherboardImgTag.alt) {
-      motherboardIndex = idx;
+      motherBoardImgIdx = idx;
       break;
     }
   }
-  //  get current alt attribute on the current image
-  if (motherboardIndex < 0) {
-    console.log(`BREAK: motherboardIndex is < 0`);
-    return;
-  } else {
-    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    selectedComputer.motherboard.url = motherboardObjects[motherboardIndex].url;
-    selectedComputer.motherboard.alt = motherboardObjects[motherboardIndex].model;
-    selectedComputer.motherboard.model = motherboardObjects[motherboardIndex].model;
-    selectedComputer.motherboard.description = motherboardObjects[motherboardIndex].description;
-    selectedComputer.motherboard.price = motherboardObjects[motherboardIndex].price;
+  // //  get current alt attribute on the current image
+  // if (motherBoardImgIdx < 0) {
+  //   console.log(`BREAK: motherBoardImgIdx is < 0`);
+  //   return;
+  // } else {
+  //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+  selectedComputer.motherboard.url = motherboardObjects[motherBoardImgIdx].url;
+  selectedComputer.motherboard.alt = motherboardObjects[motherBoardImgIdx].model;
+  selectedComputer.motherboard.model = motherboardObjects[motherBoardImgIdx].model;
+  selectedComputer.motherboard.description = motherboardObjects[motherBoardImgIdx].description;
+  selectedComputer.motherboard.price = motherboardObjects[motherBoardImgIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
-    writeToStorage(selectedComputer.userName, selectedComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.userName}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
+  // }
 }
 
 function motherBoardClickedHandler(event){
