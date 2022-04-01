@@ -103,35 +103,28 @@
       <!--Total will be appended here-->
     </tbody>
   </table>
-  <div id= "html">
-
-    <div class="cover">
-      <div class="contents">
-        <h1 id= "h1">Thank you!</h1>
-        <p>Your purchase will be built and shipped out within 3-5 business days!</p>
-        <span class="close">Close</span>
-      </div>
+  <div class="container">
+    <div>
+      <input type="button" id='submitButton' class="btn btn-1" value="Check Out"></input>
+    </br>
+    </br>
+    </br>
     </div>
-    <button id= buttonCheckOut>
-      <div class="container">
-        <div>
-          <a href="#end-of-page" class="btn btn-1">CHECK OUT</a>
-        </br>
-        </br>
-        </br>
-        </div>
-      </div>
-    </button>
-    
-    </div>
+  </div>
 
+  <section id="thanks-for-order">
+    <h1>Thank you for your order!</h1>
+    <p>Your purchase will be built and shipped out within 3-5 business days!</p>
+    <div id="shopping-cart-total"></div>  <!-- total sum of items the user has selected -->
+  </section>
 
   <!--Footer-->
-  <footer id="end-of-page">
+  <footer id="endofpage">
     <p>EZ-PC&#8482 | 1123 South Seattle Rd. | 206-555-0076 </p>
   </footer>
   <script src="js/storage.js"></script>
   <script src="js/components.js"></script>
+  <script src="js/checkOutUser.js"></script>
   <script src="js/app.js"></script>
 </body>
 

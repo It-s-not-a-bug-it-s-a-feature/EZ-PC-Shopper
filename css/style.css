@@ -313,7 +313,7 @@ td {
 /* ***********Checkout Button*********** */
 
 
-.container {
+/* .container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -352,12 +352,8 @@ td {
 }
 .btn-1:hover::before {
   transform: translate(-12px, 12px)
-}
+} */
 
-#buttonCheckOut{
-  /* border: 0px solid rgb(226, 231, 231); */
-  background-color: rgb(226, 231, 231);
-}
 
 
 

@@ -34,6 +34,8 @@ let motherBoardImgIdx = 0;
 // End Globals for slideshow
 
 
+
+
 //  display the default computer component images in 'slideshow' format
 function renderInitialImages() {
   //  post images for memory
