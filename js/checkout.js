@@ -2,7 +2,6 @@ let computer = basicComputer;
 
 let checkOutElem = document.getElementById('shopping-cart-total');
 let shopShip = document.getElementById('shopShipping');
-let cartTotal = 0;
 // let username = readFromStorage('username');
 const div = document.getElementById('chekForm');
 div.addEventListener('click', doAlert);
@@ -14,6 +13,7 @@ function readFromBuildStorage() {
 }
 
 function doAlert() {
+  let cartTotal = 0;
   let readUsername = readFromBuildStorage();
   // event.preventDefault();
   console.log('entered check out handle clicked');
