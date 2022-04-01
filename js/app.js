@@ -23,6 +23,16 @@ let videocardImgTag = document.getElementById('videocardImg');
 let motherboardImgTag = document.getElementById('motherboardImg');
 let tableBody = document.getElementById('tableBody');
 
+//Globals for image slideshow event handlers
+//Todo: This represents the basic computer initial settings. Change the settings here if not using initial computer.
+let memoryImageIdx = 0;
+let processorImgIdx = 0;
+let storageImgIdx = 0;
+let chassisImgIdx = 0;
+let videocardImgIdx = 0;
+let motherBoardImgIdx = 0;
+// End Globals for slideshow
+
 //  display the default computer component images in 'slideshow' format
 function renderInitialImages() {
   //  post images for memory
@@ -192,87 +202,84 @@ renderItemsList(selectedComputer);
 
 //  MEMORY COMPONENT EVENTS
 function moveNext(event) {
-  let memoryIndex = -1;
 
-  for (let idx = 0; idx < memoryObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (memoryObjects[idx].model === memoryImgTag.alt) {
-      console.log(`Found memoryobject at index ${idx}`);
-      memoryIndex = idx;
-      break;
-    }
-  }
-  if (memoryIndex < 0) {
-    console.log('BREAK: memoryIndex is < 0');
-    return;
-  } else if (memoryIndex === memoryObjects.length - 1) {
+  // for (let idx = 0; idx < memoryObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (memoryObjects[idx].model === memoryImgTag.alt) {
+  //     console.log(`Found memoryobject at index ${idx}`);
+  //     memoryIndex = idx;
+  //     break;
+  //   }
+  // }
+  // if (memoryIndex < 0) {
+  //   console.log('BREAK: memoryIndex is < 0');
+  //   return;
+  if (memoryImageIdx === memoryObjects.length - 1) {
     console.log('memoryIndex was at end, reset to 0');
-    memoryIndex = 0;
+    memoryImageIdx = 0;
   } else {
-    memoryIndex++;
-    console.log(`memoryIndex incremented to: ${memoryIndex}`);
+    memoryImageIdx++;
+    console.log(`memoryIndex incremented to: ${memoryImageIdx}`);
   }
 
-  memoryImgTag.src = memoryObjects[memoryIndex].url;
-  memoryImgTag.alt = memoryObjects[memoryIndex].model;
+  memoryImgTag.src = memoryObjects[memoryImageIdx].url;
+  memoryImgTag.alt = memoryObjects[memoryImageIdx].model;
 }
 
 function movePrev(event) {
-  let memoryIndex = -1;
 
-  for (let idx = 0; idx < memoryObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (memoryObjects[idx].model === memoryImgTag.alt) {
-      console.log(`Found memoryobject at index ${idx}`);
-      memoryIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (memoryIndex < 0) {
-    console.log(`BREAK: memoryIndex is < 0`);
-    return;
-  } else if (memoryIndex < 1) {
+  // for (let idx = 0; idx < memoryObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (memoryObjects[idx].model === memoryImgTag.alt) {
+  //     console.log(`Found memoryobject at index ${idx}`);
+  //     memoryImageIdx = idx;
+  //     break; //  we found the index in the component definition array
+  //   }
+  // }
+  // if (memoryImageIdx < 0) {
+  //   console.log(`BREAK: memoryImageIdx is < 0`);
+  //   return;
+  if (memoryImageIdx < 1) {
     // index is at zero and must be reset to end
-    memoryIndex = memoryObjects.length - 1;
+    memoryImageIdx = memoryObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    memoryIndex--;
-    console.log(`memoryIndex decremented to: ${memoryIndex}`);
+    memoryImageIdx--;
+    console.log(`memoryImageIdx decremented to: ${memoryImageIdx}`);
   }
 
-  console.log(`setting memoryImgTag src and alt at memoryIndex ${memoryIndex}`);
-  memoryImgTag.src = memoryObjects[memoryIndex].url;
-  memoryImgTag.alt = memoryObjects[memoryIndex].model;
+  console.log(`setting memoryImgTag src and alt at memoryImageIdx ${memoryImageIdx}`);
+  memoryImgTag.src = memoryObjects[memoryImageIdx].url;
+  memoryImgTag.alt = memoryObjects[memoryImageIdx].model;
 }
 
 function imgClicked(event) {
-  let memoryIndex = -1;
 
   for (let idx = 0; idx < memoryObjects.length; idx++) {
 
     if (memoryObjects[idx].model === memoryImgTag.alt) {
-      memoryIndex = idx;
+      memoryImageIdx = idx;
       break;
     }
   }
   //  get current alt attribute on the current image
-  if (memoryIndex < 0) {
-    console.log(`BREAK: memoryIndex is < 0`);
-    return;
-  } else {
-    //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    selectedComputer.memory.url = memoryObjects[memoryIndex].url;
-    selectedComputer.memory.alt = memoryObjects[memoryIndex].model;
-    selectedComputer.memory.model = memoryObjects[memoryIndex].model;
-    selectedComputer.memory.description = memoryObjects[memoryIndex].description;
-    selectedComputer.memory.price = memoryObjects[memoryIndex].price;
+  // if (memoryImageIdx < 0) {
+  //   console.log(`BREAK: memoryImageIdx is < 0`);
+  //   return;
+  // } else {
+  //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
+  selectedComputer.memory.url = memoryObjects[memoryImageIdx].url;
+  selectedComputer.memory.alt = memoryObjects[memoryImageIdx].model;
+  selectedComputer.memory.model = memoryObjects[memoryImageIdx].model;
+  selectedComputer.memory.description = memoryObjects[memoryImageIdx].description;
+  selectedComputer.memory.price = memoryObjects[memoryImageIdx].price;
 
-    renderItemsList(selectedComputer);
+  renderItemsList(selectedComputer);
 
-    //  ask the methods in storage.js to store the computer object into local storage
-    console.log(`writing computer object to local storage: ${selectedComputer.componentType}`);
-    writeToStorage(selectedComputer.userName, selectedComputer);
-  }
+  //  ask the methods in storage.js to store the computer object into local storage
+  console.log(`writing computer object to local storage: ${selectedComputer.componentType}`);
+  writeToStorage(selectedComputer.userName, selectedComputer);
+  // }
 }
 
 function memoryClickedHandler(event){
