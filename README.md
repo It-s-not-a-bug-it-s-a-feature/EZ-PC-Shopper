@@ -1,4 +1,5 @@
-# EZ PC Shopper Overview
+# Code Fellows 201 Team Project
+## EZ-PC Shopper Overview
 
 We want to make computer shopping easier for ALL users. We use visual aids to assist end-users to build a computer that meets their needs. Users may not know what the components are, and we take out the hassle of descriptors with visual aids and easy-to-understand language. It's a unique and effective way to help ANY computer user build and buy a custom computer.
 
@@ -35,10 +36,6 @@ By asking our site visitors for what they are looking for, our website will make
 
 EZ PC Shopper strives to make the PC customization and purchase process easy-peasy.
 
-## References
-
-All project materials are in this repository.  
-
 ### Domain Model
 
 See [Domain Model](Domain Model.pdf).  
@@ -54,3 +51,17 @@ See [Wireframe Model](Wireframe%20_%20EZ-PC.pdf).
 ### Software Requirements
 
 See [Requirements.md](requirements.md).  
+
+## References
+
+All images sourced from [Unsplash.com](unsplash.com)  
+
+Project planning tool: [GitHub Projects.](https://github.com/It-s-not-a-bug-it-s-a-feature/EZ-PC-Shopper/projects/1)
+
+Used [Font Awesome](https://fontawesome.com/) initially, but ultimately removed it.
+
+Fonts sourced from [GoogleFonts.](https://fonts.google.com/)
+
+All technical knowledge of computer components came from team members - Kyle, Scott, and Jon.
+
+Big thanks to our instructor, Audrey Patterson.
