@@ -30,3 +30,6 @@ function readFromStorage(computerCategory) {
 // let thingFromStorage = readFromStorage('testing');
 // console.log(thingFromStorage);
 
+
+
+

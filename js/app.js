@@ -23,6 +23,9 @@ let videocardImgTag = document.getElementById('videocardImg');
 let motherboardImgTag = document.getElementById('motherboardImg');
 let tableBody = document.getElementById('tableBody');
 
+
+
+
 //  display the default computer component images in 'slideshow' format
 function renderInitialImages() {
   //  post images for memory
