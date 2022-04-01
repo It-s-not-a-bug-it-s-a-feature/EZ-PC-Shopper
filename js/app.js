@@ -304,80 +304,80 @@ let ramComponentEl = document.getElementById('memory');
 // ************************************************************************************************************
 // CPU COMPONENT EVENTS
 function cpuMoveNext(event) {
-  let cpuIndex = -1;
+  // let processorImgIdx = -1;
 
-  for (let idx = 0; idx < processorObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (processorObjects[idx].model === processorImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      cpuIndex = idx;
-      break;
-    }
-  }
-  if (cpuIndex < 0) {
-    console.log('BREAK: cpuIndex is < 0');
-    return;
-  } else if (cpuIndex === processorObjects.length - 1) {
-    console.log('cpuIndex was at end, reset to 0');
-    cpuIndex = 0;
+  // for (let idx = 0; idx < processorObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (processorObjects[idx].model === processorImgTag.alt) {
+  //     console.log(`Found processorObject at index ${idx}`);
+  //     processorImgIdx = idx;
+  //     break;
+  //   }
+  // }
+  // if (processorImgIdx < 0) {
+  //   console.log('BREAK: processorImgIdx is < 0');
+  //   return;
+  if (processorImgIdx === processorObjects.length - 1) {
+    console.log('processorImgIdx was at end, reset to 0');
+    processorImgIdx = 0;
   } else {
-    cpuIndex++;
-    console.log(`cpuIndex incremented to: ${cpuIndex}`);
+    processorImgIdx++;
+    console.log(`processorImgIdx incremented to: ${processorImgIdx}`);
   }
 
-  processorImgTag.src = processorObjects[cpuIndex].url;
-  processorImgTag.alt = processorObjects[cpuIndex].model;
+  processorImgTag.src = processorObjects[processorImgIdx].url;
+  processorImgTag.alt = processorObjects[processorImgIdx].model;
 }
 
 function cpuMovePrev(event) {
-  let cpuIndex = -1;
+  // let processorImgIdx = -1;
 
-  for (let idx = 0; idx < processorObjects.length; idx++) {
-    console.log(`searching for match staring with index ${idx}`);
-    if (processorObjects[idx].model === processorImgTag.alt) {
-      console.log(`Found processorObject at index ${idx}`);
-      cpuIndex = idx;
-      break; //  we found the index in the component definition array
-    }
-  }
-  if (cpuIndex < 0) {
-    console.log(`BREAK: cpuIndex is < 0`);
-    return;
-  } else if (cpuIndex < 1) {
+  // for (let idx = 0; idx < processorObjects.length; idx++) {
+  //   console.log(`searching for match staring with index ${idx}`);
+  //   if (processorObjects[idx].model === processorImgTag.alt) {
+  //     console.log(`Found processorObject at index ${idx}`);
+  //     processorImgIdx = idx;
+  //     break; //  we found the index in the component definition array
+  //   }
+  // }
+  // if (processorImgIdx < 0) {
+  //   console.log(`BREAK: processorImgIdx is < 0`);
+  //   return;
+  // } else
+  if (processorImgIdx < 1) {
     // index is at zero and must be reset to end
-    cpuIndex = processorObjects.length - 1;
+    processorImgIdx = processorObjects.length - 1;
   } else {
     // index is somewhere within the valid range so decrement it
-    cpuIndex--;
-    console.log(`cpuIndex decremented to: ${cpuIndex}`);
+    processorImgIdx--;
+    console.log(`processorImgIdx decremented to: ${processorImgIdx}`);
   }
 
-  console.log(`setting processorImgTag src and alt at cpuIndex ${cpuIndex}`);
-  processorImgTag.src = processorObjects[cpuIndex].url;
-  processorImgTag.alt = processorObjects[cpuIndex].model;
+  console.log(`setting processorImgTag src and alt at processorImgIdx ${processorImgIdx}`);
+  processorImgTag.src = processorObjects[processorImgIdx].url;
+  processorImgTag.alt = processorObjects[processorImgIdx].model;
 }
 
 function cpuImgClicked(event) {
-  let cpuIndex = -1;
 
   for (let idx = 0; idx < processorObjects.length; idx++) {
 
     if (processorObjects[idx].model === processorImgTag.alt) {
-      cpuIndex = idx;
+      processorImgIdx = idx;
       break;
     }
   }
   //  get current alt attribute on the current image
-  if (cpuIndex < 0) {
-    console.log(`BREAK: cpuIndex is < 0`);
+  if (processorImgIdx < 0) {
+    console.log(`BREAK: processorImgIdx is < 0`);
     return;
   } else {
     //  store that attribute's value to the computer object's memory property (componentType, model, price, description)
-    selectedComputer.processor.url = processorObjects[cpuIndex].url;
-    selectedComputer.processor.alt = processorObjects[cpuIndex].model;
-    selectedComputer.processor.model = processorObjects[cpuIndex].model;
-    selectedComputer.processor.description = processorObjects[cpuIndex].description;
-    selectedComputer.processor.price = processorObjects[cpuIndex].price;
+    selectedComputer.processor.url = processorObjects[processorImgIdx].url;
+    selectedComputer.processor.alt = processorObjects[processorImgIdx].model;
+    selectedComputer.processor.model = processorObjects[processorImgIdx].model;
+    selectedComputer.processor.description = processorObjects[processorImgIdx].description;
+    selectedComputer.processor.price = processorObjects[processorImgIdx].price;
 
     renderItemsList(selectedComputer);
 
